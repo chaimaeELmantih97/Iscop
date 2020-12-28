@@ -37,7 +37,6 @@ class CartController extends Controller
             // return $already_cart->quantity;
             if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
             $already_cart->save();
-            
         }else{
             
             $cart = new Cart;

@@ -94,14 +94,14 @@
                                 $total_prod=0;
                                 $total_amount=0;
                             @endphp
-                           @if(session('wishlist'))
+                            @if(session('wishlist'))
                                 @foreach(session('wishlist') as $wishlist_items)
                                     @php
                                         $total_prod+=$wishlist_items['quantity'];
                                         $total_amount+=$wishlist_items['amount'];
                                     @endphp
                                 @endforeach
-                           @endif
+                            @endif
                             <a href="{{route('wishlist')}}" class="single-icon"><i class="fa fa-heart-o"></i> <span class="total-count">{{Helper::wishlistCount()}}</span></a>
                             <!-- Shopping Item -->
                             @auth
@@ -112,17 +112,17 @@
                                     </div>
                                     <ul class="shopping-list">
                                         {{-- {{Helper::getAllProductFromCart()}} --}}
-                                            @foreach(Helper::getAllProductFromWishlist() as $data)
-                                                    @php
-                                                        $photo=explode(',',$data->product['photo']);
-                                                    @endphp
-                                                    <li>
-                                                        <a href="{{route('wishlist-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                        <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
-                                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
-                                                        <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
-                                                    </li>
-                                            @endforeach
+                                        @foreach(Helper::getAllProductFromWishlist() as $data)
+                                                @php
+                                                    $photo=explode(',',$data->product['photo']);
+                                                @endphp
+                                                <li>
+                                                    <a href="{{route('wishlist-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                    <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
+                                                    <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
+                                                    <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
+                                                </li>
+                                        @endforeach
                                     </ul>
                                     <div class="bottom">
                                         <div class="total">
@@ -145,21 +145,21 @@
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
                                         <span>{{count(Helper::getAllProductFromCart())}} Items</span>
-                                        <a href="{{route('cart')}}">View Cart</a>
+                                        <a href="{{route('cart')}}">Voir le Panier</a>
                                     </div>
                                     <ul class="shopping-list">
                                         {{-- {{Helper::getAllProductFromCart()}} --}}
-                                            @foreach(Helper::getAllProductFromCart() as $data)
-                                                    @php
-                                                        $photo=explode(',',$data->product['photo']);
-                                                    @endphp
-                                                    <li>
-                                                        <a href="{{route('cart-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                                        <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
-                                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
-                                                        <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
-                                                    </li>
-                                            @endforeach
+                                        @foreach(Helper::getAllProductFromCart() as $data)
+                                            @php
+                                                $photo=explode(',',$data->product['photo']);
+                                            @endphp
+                                            <li>
+                                                <a href="{{route('cart-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
+                                                <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
+                                                <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                     <div class="bottom">
                                         <div class="total">
