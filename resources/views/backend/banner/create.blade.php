@@ -1,17 +1,17 @@
 @extends('backend.layouts.master')
 
-@section('title','E-SHOP || Banner Create')
+@section('title','Beauty Design - Ajouter une Bannière')
 
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Banner</h5>
+    <h5 class="card-header">Ajouter une Bannière</h5>
     <div class="card-body">
       <form method="post" action="{{route('banner.store')}}">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-        <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
+          <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="title" placeholder="Entrer le titre."  value="{{old('title')}}" class="form-control">
         @error('title')
         <span class="text-danger">{{$message}}</span>
         @enderror
@@ -19,18 +19,39 @@
 
         <div class="form-group">
           <label for="inputDesc" class="col-form-label">Description</label>
-          <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+          <textarea class="form-control" id="inputDesc" name="description" placeholder="Entrer la description.">{{old('description')}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
 
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="inputTitleColor" class="col-form-label">Couleur de titre</label>
+              <input type="color" id="inputTitleColor" class="form-control" name="title_color" value="{{old('title_color')}}">
+              @error('title_color')
+                <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputDescriptionColor" class="col-form-label">Couleur du Description</label>
+              <input type="color" id="inputDescriptionColor" class="form-control" name="description_color" value="{{old('description_color')}}">
+              @error('description_color')
+                <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
+          </div>
+        </div>
+        
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                <i class="fa fa-picture-o"></i> Choose
+                <i class="fa fa-picture-o"></i> Choisir
                 </a>
             </span>
           <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
@@ -42,7 +63,7 @@
         </div>
         
         <div class="form-group">
-          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
@@ -52,8 +73,8 @@
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning">Réinitialiser</button>
+           <button class="btn btn-success" type="submit">Valider</button>
         </div>
       </form>
     </div>
@@ -62,20 +83,13 @@
 @endsection
 
 @push('styles')
-<link rel="stylesheet" href="{{asset('backend/summernote/summernote.min.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/summernote/summernote.min.css')}}">
 @endpush
-@push('scripts')
-<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
-<script src="{{asset('backend/summernote/summernote.min.js')}}"></script>
-<script>
-    $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-    $('#description').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
-    });
-    });
-</script>
+@push('scripts')
+  <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+  <script src="{{asset('backend/summernote/summernote.min.js')}}"></script>
+  <script>
+      $('#lfm').filemanager('image');
+  </script>
 @endpush

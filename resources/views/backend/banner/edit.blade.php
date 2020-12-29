@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || Banner Edit')
+@section('title','Beauty Design - Banner Edit')
 @section('main-content')
 
 <div class="card">
@@ -47,11 +47,11 @@
             <option value="inactive" {{(($banner->status=='inactive') ? 'selected' : '')}}>Inactive</option>
           </select>
           @error('status')
-          <span class="text-danger">{{$message}}</span>
+            <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group mb-3">
-           <button class="btn btn-success" type="submit">Update</button>
+           <button class="btn btn-success" type="submit">Mis à jour</button>
         </div>
       </form>
     </div>
@@ -60,20 +60,13 @@
 @endsection
 
 @push('styles')
-<link rel="stylesheet" href="{{asset('backend/summernote/summernote.min.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/summernote/summernote.min.css')}}">
 @endpush
-@push('scripts')
-<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
-<script src="{{asset('backend/summernote/summernote.min.js')}}"></script>
-<script>
-    $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-    $('#description').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
-    });
-    });
-</script>
+@push('scripts')
+  <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+  <script src="{{asset('backend/summernote/summernote.min.js')}}"></script>
+  <script>
+      $('#lfm').filemanager('image');
+  </script>
 @endpush

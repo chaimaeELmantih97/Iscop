@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || Banner Page')
+@section('title','Beauty Design - Page de Bannières')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Banners List</h6>
-      <a href="{{route('banner.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Banner</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des Bannières</h6>
+      <a href="{{route('banner.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter une Bannière</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,21 +18,21 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>Numéro</th>
+              <th>Titre</th>
               <th>Slug</th>
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>Numéro</th>
+              <th>Titre</th>
               <th>Slug</th>
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
               </tr>
           </tfoot>
