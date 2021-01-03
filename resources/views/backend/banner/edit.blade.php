@@ -3,14 +3,14 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Edit Banner</h5>
+    <h5 class="card-header">Modifier la Bannière</h5>
     <div class="card-body">
       <form method="post" action="{{route('banner.update',$banner->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-        <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$banner->title}}" class="form-control">
+          <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="title" placeholder="Entrer le titre"  value="{{$banner->title}}" class="form-control">
         @error('title')
         <span class="text-danger">{{$message}}</span>
         @enderror
@@ -24,12 +24,33 @@
           @enderror
         </div>
 
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="inputTitleColor" class="col-form-label">Couleur de titre</label>
+              <input type="color" id="inputTitleColor" class="form-control" name="title_color" value="{{$banner->title_color}}">
+              @error('title_color')
+                <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="inputDescriptionColor" class="col-form-label">Couleur du Description</label>
+              <input type="color" id="inputDescriptionColor" class="form-control" name="description_color" value="{{$banner->description_color}}">
+              @error('description_color')
+                <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                <i class="fa fa-picture-o"></i> Choose
+                <i class="fa fa-picture-o"></i> Choisir
                 </a>
             </span>
           <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$banner->photo}}">
@@ -41,7 +62,7 @@
         </div>
         
         <div class="form-group">
-          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
             <option value="active" {{(($banner->status=='active') ? 'selected' : '')}}>Active</option>
             <option value="inactive" {{(($banner->status=='inactive') ? 'selected' : '')}}>Inactive</option>

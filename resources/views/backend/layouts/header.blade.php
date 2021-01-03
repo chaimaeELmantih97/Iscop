@@ -4,7 +4,7 @@
     <button id="sidebarToggleTop" class="btn btn-link  rounded-circle mr-3">
       <i class="fa fa-bars"></i>
     </button>
-
+{{-- 
     <!-- Topbar Search -->
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
       <div class="input-group">
@@ -15,7 +15,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> --}}
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -47,10 +47,10 @@
         </a>
       </li>
 
-      <!-- Nav Item - Alerts -->
+      {{-- <!-- Nav Item - Alerts -->
       <li class="nav-item dropdown no-arrow mx-1">
        @include('backend.notification.show')
-      </li>
+      </li> --}}
 
       <!-- Nav Item - Messages -->
       <li class="nav-item dropdown no-arrow mx-1" id="messageT" data-url="{{route('messages.five')}}">

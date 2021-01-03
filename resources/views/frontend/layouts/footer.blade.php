@@ -1,144 +1,142 @@
-<!-- start site-footer -->
-<footer class="site-footer">
-	<div class="upper-footer">
-		<div class="container">
-			<div class="row display-flex">
-				<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-2">
-					<div class="widget about-widget">
-						<div class="widget-title">
-							<a class="logo" href="javascript:"><img alt src="{{asset('frontend/assets/images/logo.png')}}"></a>
+@php
+    $settings=DB::table('settings')->get();
+@endphp
+
+	<!-- start site-footer -->
+<footer class="site-footer">		
+	@if (request()->segment(1) != 'contact')
+		<div class="upper-footer">
+			<div class="container">
+				<div class="row display-flex">
+					<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-2">
+						<div class="widget about-widget">
+							<div class="widget-title">
+								<a class="logo" href="javascript:"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
+							</div>
+							<ul>
+								<li>
+									<div class="icon">
+										<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/call.svg')}}">
+									</div>
+									<div class="content">
+										<p>Appelez-nous:</p>
+										<span style="color: #fff; font-size: 13px">@foreach($settings as $data) {{$data->phone}} @endforeach</span>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/envelope-open.svg')}}">
+									</div>
+									<div class="content">
+										<p>Email:</p>
+										<span style="color: #fff; font-size: 13px">@foreach($settings as $data) {{$data->email}} @endforeach</span>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/gps.svg')}}">
+									</div>
+									<div class="content">
+										<p>Adresse:</p>
+										<span style="color: #fff; font-size: 13px">@foreach($settings as $data) {{$data->address}} @endforeach</span>
+									</div>
+								</li>
+							</ul>
 						</div>
-						<ul>
-							<li>
-								<div class="icon">
-									<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/call.svg')}}">
-								</div>
-								<div class="content">
-									<p>Call Us:</p>
-									<h4>+00 823 468 739</h4>
-								</div>
-							</li>
-							<li>
-								<div class="icon">
-									<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/envelope-open.svg')}}">
-								</div>
-								<div class="content">
-									<p>Email Us:</p>
-									<h4>insut@gmail.com</h4>
-								</div>
-							</li>
-							<li>
-								<div class="icon">
-									<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/gps.svg')}}">
-								</div>
-								<div class="content">
-									<p>Address:</p>
-									<h4>86 Mist Street, USA</h4>
-								</div>
-							</li>
-						</ul>
 					</div>
-				</div>
-				<div class="col-lg-6 col-sm-12 col-xs-12 order-1">
-					<div class="contact-widget">
-						<div class="display-flex-title">
-							<div class="section-title text-center">
-								<span>Contactez-Nous</span>
-								<h2>Nous sommes toujours prêts à résoudre vos problèmes.</h2>
-							</div>
-						</div>
-						<form class="contact-validation-active" id="contact-form-main" method="post"
-							  novalidate="novalidate">
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-									<div class="form-group">
-										<input class="form-control" id="name" name="name" placeholder="Nom*"
-											   type="text">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-									<div class="form-group">
-										<input class="form-control" id="email" name="email" placeholder="Email*"
-											   type="email">
-									</div>
+					<div class="col-lg-6 col-sm-12 col-xs-12 order-1">
+						<div class="contact-widget">
+							<div class="display-flex-title">
+								<div class="section-title text-center">
+									<span>Contactez-Nous</span>
+									<h2>Nous sommes toujours prêts à résoudre vos problèmes.</h2>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-									<div class="form-group">
-										<input class="form-control" id="phone" name="phone" placeholder="Téléphone*"
-											   type="text">
+							<form class="contact-validation-active" id="contact-form-main" method="post" action="{{route('contact.store')}}">
+								@csrf
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
+										<div class="form-group">
+											<input class="form-control" id="name" name="name" placeholder="Nom*" type="text">
+										</div>
 									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-									<div class="form-group">
-										<div class="form-select">
-											<select class="form-control" name="subject">
-												<option disabled="disabled" selected="">Objet</option>
-												<option style="color: #242424">Subject 1</option>
-												<option style="color: #242424">Subject 2</option>
-												<option style="color: #242424">Subject 3</option>
-											</select>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
+										<div class="form-group">
+											<input class="form-control" id="email" name="email" placeholder="Email*" type="email">
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12">
-									<div class="form-group">
-										<div class="fullwidth">
-									<textarea class="form-control" id="note" name="note"
-											  placeholder="Message..."></textarea>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
+										<div class="form-group">
+											<input class="form-control" id="phone" name="phone" placeholder="Téléphone*" type="text">
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
+										<div class="form-group">
+											<input class="form-control" id="subject" name="subject" placeholder="Objet*" type="text">
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6 col-lg-offset-3">
-									<div class="form-group">
-										<div class="submit-area">
-											<button class="submit-btn" type="submit">
-												Envoyer
-											</button>
-											<div id="loader">
-												<i class="ti-reload"></i>
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="form-group">
+											<div class="fullwidth">
+												<textarea class="form-control" id="note" name="message" placeholder="Message..."></textarea>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="clearfix error-handling-messages">
-								<div id="success">Thank you</div>
-								<div id="error"> Error occurred while sending email. Please try again later.
+								<div class="row">
+									<div class="col-lg-6 col-lg-offset-3">
+										<div class="form-group">
+											<div class="submit-area">
+												<button class="submit-btn" type="submit">
+													Envoyer le message
+												</button>
+												<div id="loader">
+													<i class="ti-reload"></i>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-3">
-					<div class="widget link-widget">
-						<div class="widget-title">
-							<h3>Our Services</h3>
+								<div class="clearfix error-handling-messages">
+									<div id="success">Merci</div>
+									<div id="error">
+										Une erreur s'est produite lors de l'envoi d'email. Veuillez réessayer plus tard.
+									</div>
+								</div>
+							</form>
 						</div>
-						<ul>
-							<li><a href="service-single.html">Architecture</a></li>
-							<li><a href="service-single.html">Floor Planing</a></li>
-							<li><a href="service-single.html">Kitchen Design</a></li>
-							<li><a href="service-single.html">Building Design</a></li>
-							<li><a href="service-single.html">Construction</a></li>
-							<li><a href="service-single.html">Interior Design</a></li>
-						</ul>
+					</div>
+					<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-3">
+						<div class="widget link-widget">
+							<div class="widget-title">
+								<h3>Beauty Design</h3>
+							</div>
+							<ul>
+								<li><a href="{{route('home')}}">Accueil</a></li>
+								<li><a href="{{route('about-us')}}">À Propos</a></li>
+								<li><a href="{{route('product-grids')}}">Produits</a></li>
+								{{-- <li><a href="{{route('home')}}">Références</a></li> --}}
+								<li><a href="{{route('promotions')}}">Promotions</a></li>
+								<li><a href="{{route('contact')}}">Contact</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
+			<!-- end container -->
 		</div>
-		<!-- end container -->
-	</div>
+		
+	@endif
+		
 	<div class="lower-footer">
 		<div class="container">
 			<div class="row display-flex">
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<p class="copyright">Copyright © 2020. All right reserved.</p>
+					<p class="copyright"><a href="http://feen-tech.com" style="color: #fff">FeenTech</a> Corporation © 2020</p>
 				</div><!-- /col -->
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="social-icons">
@@ -156,7 +154,9 @@
 </footer>
 <!-- end site-footer -->
 
-
+<!-- PhotoSwipe -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js" integrity="sha512-2R4VJGamBudpzC1NTaSkusXP7QkiUYvEKhpJAxeVCqLDsgW4OqtzorZGpulE3eEA7p++U0ZYmqBwO3m+R2hRjA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js" integrity="sha512-SxO0cwfxj/QhgX1SgpmUr0U2l5304ezGVhc0AO2YwOQ/C8O67ynyTorMKGjVv1fJnPQgjdxRz6x70MY9r0sKtQ==" crossorigin="anonymous"></script>
 
 <!-- All JavaScript files
 ================================================== -->

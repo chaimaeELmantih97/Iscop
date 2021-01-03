@@ -9,6 +9,11 @@ use App\Models\PostCategory;
 use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
+use App\Models\Service;
+use App\Models\AboutUs;
+use App\Models\Testimonial;
+use App\Models\Catalog;
+use App\Models\Promotion;
 use App\User;
 use Auth;
 use Session;
@@ -26,9 +31,13 @@ class FrontendController extends Controller
 
     public function home(){
         $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
-        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
+        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(4)->get();
         $banners=Banner::where('status','active')->orderBy('id','DESC')->get();
-        // return $banner;
+        $about=AboutUs::first();
+        $services=Service::all();
+        $testimonials = Testimonial::orderBy('id','ASC')->get();
+        $catalogs = Catalog::orderBy('id','DESC')->get();
+        $brands=Brand::all();
         $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
         // return $category;
@@ -37,11 +46,26 @@ class FrontendController extends Controller
                 ->with('posts',$posts)
                 ->with('banners',$banners)
                 ->with('product_lists',$products)
-                ->with('category_lists',$category);
+                ->with('category_lists',$category)
+                ->with('services',$services)
+                ->with('brands',$brands)
+                ->with('about',$about)
+                ->with('testimonials',$testimonials)
+                ->with('catalogs',$catalogs);
     }   
 
     public function aboutUs(){
-        return view('frontend.pages.about-us');
+        $about=AboutUs::first();
+        $services=Service::all();
+        return view('frontend.pages.about-us')
+                ->with('about',$about)
+                ->with('services',$services);
+    }
+
+
+    public function promotion(){
+        $promotions = Promotion::all();
+        return view('frontend.pages.promotions')->with('promotions', $promotions);
     }
 
     public function contact(){

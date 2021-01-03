@@ -30,10 +30,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brand=Brand::get();
-        $category=Category::where('is_parent',1)->get();
+        // $brand=Brand::get();
+        $category=Category::all();
         // return $category;
-        return view('backend.product.create')->with('categories',$category)->with('brands',$brand);
+        return view('backend.product.create')->with('categories',$category);
     }
 
     /**
@@ -47,19 +47,19 @@ class ProductController extends Controller
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required',
-            'summary'=>'string|required',
+            // 'summary'=>'string|required',
             'description'=>'string|nullable',
             'photo'=>'string|required',
-            'size'=>'nullable',
-            'stock'=>"required|numeric",
+            // 'size'=>'nullable',
+            // 'stock'=>"required|numeric",
             'cat_id'=>'required|exists:categories,id',
-            'brand_id'=>'nullable|exists:brands,id',
-            'child_cat_id'=>'nullable|exists:categories,id',
-            'is_featured'=>'sometimes|in:1',
+            // 'brand_id'=>'nullable|exists:brands,id',
+            // 'child_cat_id'=>'nullable|exists:categories,id',
+            // 'is_featured'=>'sometimes|in:1',
             'status'=>'required|in:active,inactive',
-            'condition'=>'required|in:default,new,hot',
-            'price'=>'required|numeric',
-            'discount'=>'nullable|numeric'
+            // 'condition'=>'required|in:default,new,hot',
+            // 'price'=>'required|numeric',
+            // 'discount'=>'nullable|numeric'
         ]);
 
         $data=$request->all();
@@ -69,22 +69,22 @@ class ProductController extends Controller
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
         }
         $data['slug']=$slug;
-        $data['is_featured']=$request->input('is_featured',0);
-        $size=$request->input('size');
-        if($size){
-            $data['size']=implode(',',$size);
-        }
-        else{
-            $data['size']='';
-        }
+        // $data['is_featured']=$request->input('is_featured',0);
+        // $size=$request->input('size');
+        // if($size){
+        //     $data['size']=implode(',',$size);
+        // }
+        // else{
+        //     $data['size']='';
+        // }
         // return $size;
         // return $data;
         $status=Product::create($data);
         if($status){
-            request()->session()->flash('success','Product Successfully added');
+            request()->session()->flash('success','Produit ajouté avec succès');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Une erreur s\'est produite, veuillez réessayer !');
         }
         return redirect()->route('product.index');
 
@@ -109,14 +109,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $brand=Brand::get();
+        // $brand=Brand::get();
         $product=Product::findOrFail($id);
-        $category=Category::where('is_parent',1)->get();
-        $items=Product::where('id',$id)->get();
+        $category=Category::all();
+        // $items=Product::where('id',$id)->get();
         // return $items;
-        return view('backend.product.edit')->with('product',$product)
-                    ->with('brands',$brand)
-                    ->with('categories',$category)->with('items',$items);
+        return view('backend.product.edit')->with('product',$product)->with('categories',$category);
     }
 
     /**
@@ -131,37 +129,37 @@ class ProductController extends Controller
         $product=Product::findOrFail($id);
         $this->validate($request,[
             'title'=>'string|required',
-            'summary'=>'string|required',
+            // 'summary'=>'string|required',
             'description'=>'string|nullable',
             'photo'=>'string|required',
-            'size'=>'nullable',
-            'stock'=>"required|numeric",
+            // 'size'=>'nullable',
+            // 'stock'=>"required|numeric",
             'cat_id'=>'required|exists:categories,id',
-            'child_cat_id'=>'nullable|exists:categories,id',
-            'is_featured'=>'sometimes|in:1',
-            'brand_id'=>'nullable|exists:brands,id',
+            // 'child_cat_id'=>'nullable|exists:categories,id',
+            // 'is_featured'=>'sometimes|in:1',
+            // 'brand_id'=>'nullable|exists:brands,id',
             'status'=>'required|in:active,inactive',
-            'condition'=>'required|in:default,new,hot',
-            'price'=>'required|numeric',
-            'discount'=>'nullable|numeric'
+            // 'condition'=>'required|in:default,new,hot',
+            // 'price'=>'required|numeric',
+            // 'discount'=>'nullable|numeric'
         ]);
 
         $data=$request->all();
-        $data['is_featured']=$request->input('is_featured',0);
-        $size=$request->input('size');
-        if($size){
-            $data['size']=implode(',',$size);
-        }
-        else{
-            $data['size']='';
-        }
+        // $data['is_featured']=$request->input('is_featured',0);
+        // $size=$request->input('size');
+        // if($size){
+        //     $data['size']=implode(',',$size);
+        // }
+        // else{
+        //     $data['size']='';
+        // }
         // return $data;
         $status=$product->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Product Successfully updated');
+            request()->session()->flash('success','Produit mis à jour avec succès');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Une erreur s\'est produite, veuillez réessayer !');
         }
         return redirect()->route('product.index');
     }
@@ -178,10 +176,10 @@ class ProductController extends Controller
         $status=$product->delete();
         
         if($status){
-            request()->session()->flash('success','Product successfully deleted');
+            request()->session()->flash('success','Produit supprimé avec succès');
         }
         else{
-            request()->session()->flash('error','Error while deleting product');
+            request()->session()->flash('error','Erreur lors de la suppression du produit');
         }
         return redirect()->route('product.index');
     }

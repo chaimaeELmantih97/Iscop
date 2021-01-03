@@ -30,9 +30,11 @@ Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name(
 Route::get('/','FrontendController@home')->name('home');
 
 // Frontend Routes
+
 Route::get('/home', 'FrontendController@index');
 Route::get('/about-us','FrontendController@aboutUs')->name('about-us');
 Route::get('/contact','FrontendController@contact')->name('contact');
+Route::get('/promotion','FrontendController@promotion')->name('promotions');
 Route::post('/contact/message','MessageController@store')->name('contact.store');
 Route::get('product-detail/{slug}','FrontendController@productDetail')->name('product-detail');
 Route::post('/product/search','FrontendController@productSearch')->name('product.search');
@@ -112,6 +114,14 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('/category','CategoryController');
     // Product
     Route::resource('/product','ProductController');
+    // Services
+    Route::resource('/service','ServiceController');
+    // Catalogs
+    Route::resource('/catalog','CatalogController');
+    // Testimonials
+    Route::resource('/testimonial','TestimonialController');
+    // Promotions
+    Route::resource('/promotion','PromotionController');
     // Ajax for sub category
     Route::post('/category/{id}/child','CategoryController@getChildByParent');
     // POST category
@@ -133,6 +143,10 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     // Settings
     Route::get('settings','AdminController@settings')->name('settings');
     Route::post('setting/update','AdminController@settingsUpdate')->name('settings.update');
+
+    
+    Route::get('/about/edit','AboutUsController@edit')->name('about.edit');
+    Route::patch('/about/{id}','AboutUsController@update')->name('about.update');
 
     // Notification
     Route::get('/notification/{id}','NotificationController@show')->name('admin.notification');

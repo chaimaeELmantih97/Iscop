@@ -568,7 +568,7 @@ img {
 ------------------------------------------*/
 
 .page-title {
-    background: url("../images/page-title.jpg") center center/cover no-repeat local;
+    background: url("../images/about/about-bg.jpg") center center/cover no-repeat local;
     width: 100%;
     height: 430px;
     position: relative;
@@ -2683,7 +2683,7 @@ img {
 .arkit-service-info-single:before {
     position: absolute;
     content: attr(data-number);
-    font-size: 134px;
+    font-size: 100px;
     font-weight: 700;
     font-family: 'Barlow Condensed';
     color: #FFFFFF;
@@ -2710,7 +2710,7 @@ img {
     font-weight: 700;
     font-family: 'Heebo';
     background: #e4eaff;
-    width: 140px;
+    width: 170px;
     height: 30px;
     line-height: 35px;
     text-align: center;
@@ -2769,11 +2769,11 @@ img {
 }
 
 .arkit-service-info .service-info-slider .owl-nav .owl-prev i {
-    margin-right: 15px;
+    /* margin-right: 10px; */
 }
 
 .arkit-service-info .service-info-slider .owl-nav .owl-next i {
-    margin-left: 15px;
+    /* margin-left: 10px; */
 }
 
 .arkit-service-info .service-info-slider .owl-nav .owl-prev:hover,
@@ -2782,15 +2782,85 @@ img {
 }
 
 .arkit-service-info .service-info-slider .owl-nav .owl-prev {
-    margin-right: 100px;
+    margin-right: 10px;
 }
 
 .arkit-service-info .service-info-slider .owl-nav .owl-next {
-    margin-left: 100px;
+    margin-left: 10px;
 }
 
 /* #0.5 Start about Section
 --------------------------------------------------------------*/
+.arkit-about2 {
+    background: url("../images/about/about-bg.jpg") no-repeat center center / cover;
+    position: relative;
+}
+
+.arkit-about2:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(36, 36, 36, 0.9);
+}
+
+.arkit-about-inner > span {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Barlow Condensed';
+    color: #FFFFFF;
+    margin-bottom: 35px;
+    display: inline-block;
+}
+
+.arkit-about-inner h2 {
+    font-size: 50px;
+    font-family: 'Barlow Condensed';
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 35px;
+}
+.arkit-about-inner p {
+    color: #fff;
+}
+.arkit-about-inner .contact-number {
+    background: #282828;
+    color: #FFFFFF;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 48px;
+    margin-top: 50px;
+}
+
+.arkit-about-inner .contact-number span {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Heebo';
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.arkit-about-inner .contact-number h4 {
+    color: #FFFFFF;
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Barlow Condensed';
+}
+
+.arkit-about-inner .contact-number .icon img {
+    width: 85px;
+}
+
 .arkit-about {
     background: url("../images/about/about-bg.jpg") no-repeat center center / cover;
     position: relative;
@@ -2803,7 +2873,7 @@ img {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(52, 84, 209, 0.90);
+    background: rgba(36, 36, 36, 0.90);
 }
 
 .arkit-about-inner > span {
@@ -2969,6 +3039,58 @@ img {
 .arkit-service .owl-theme .owl-dots .owl-dot.active span,
 .arkit-service .owl-theme .owl-dots .owl-dot:hover span {
     background: #282828;
+}
+
+.arkit-service .service-info-slider .owl-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.arkit-service .service-info-slider .owl-nav .owl-prev,
+.arkit-service .service-info-slider .owl-nav .owl-next {
+    border: 2px solid #e4eaff;
+    height: 60px;
+    padding: 0 20px 0 20px;
+    /* width: 320px; */
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #282828;
+    font-family: 'Heebo';
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.arkit-service .service-info-slider .owl-nav .owl-prev i {
+    /* margin-right: 10px; */
+}
+
+.arkit-service .service-info-slider .owl-nav .owl-next i {
+    /* margin-left: 10px; */
+}
+
+.arkit-service .service-info-slider .owl-nav .owl-prev:hover,
+.arkit-service .service-info-slider .owl-nav .owl-next:hover {
+    border: 2px solid #3454d1;
+}
+
+.arkit-service .service-info-slider .owl-nav .owl-prev {
+    margin-right: 10px;
+}
+
+.arkit-service .service-info-slider .owl-nav .owl-next {
+    margin-left: 10px;
 }
 
 .read-more-btn {
@@ -3493,6 +3615,58 @@ img {
 
 .work-portfolio-slider .owl-nav .owl-next {
     margin-left: 100px;
+}
+
+.portfolio .service-info-slider .owl-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.portfolio .service-info-slider .owl-nav .owl-prev,
+.portfolio .service-info-slider .owl-nav .owl-next {
+    border: 2px solid #e4eaff;
+    height: 60px;
+    padding: 0 20px 0 20px;
+    /* width: 320px; */
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #282828;
+    font-family: 'Heebo';
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.portfolio .service-info-slider .owl-nav .owl-prev i {
+    /* margin-right: 10px; */
+}
+
+.portfolio .service-info-slider .owl-nav .owl-next i {
+    /* margin-left: 10px; */
+}
+
+.portfolio .service-info-slider .owl-nav .owl-prev:hover,
+.portfolio .service-info-slider .owl-nav .owl-next:hover {
+    border: 2px solid #3454d1;
+}
+
+.portfolio .service-info-slider .owl-nav .owl-prev {
+    margin-right: 10px;
+}
+
+.portfolio .service-info-slider .owl-nav .owl-next {
+    margin-left: 10px;
 }
 
 /* #10 Testimonial Section
@@ -4562,7 +4736,7 @@ img {
 }
 
 .project-single-section .porject-info>div {
-    width: 33.33%;
+    width: 50%;
     float: left;
     position: relative;
 }
@@ -5817,4 +5991,22 @@ img {
 
 .single-status:hover .download-btn {
     color: #fff;
+}
+
+
+.figure-overlay:hover:before {
+    content: "+";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-color: #000;
+    opacity: 0.2;
+    transition: 0.2s;
 }

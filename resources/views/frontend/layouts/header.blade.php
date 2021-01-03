@@ -1,10 +1,13 @@
+@php
+    $settings=DB::table('settings')->get();
+@endphp
 <!-- Start header -->
-<header class="site-header header-style-1" id="header">
+<header class="site-header header-style-1" id="header" style="z-index: 99999">
 
     <nav class="navigation navbar navbar-default">
         <div class="container-fluid">
             <div class="logo">
-                <a href="index.html"><img alt src="{{asset('frontend/assets/images/logo.png')}}"></a>
+                <a href="index.html"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
             </div>
 
             <div class="navbar-header">
@@ -19,48 +22,31 @@
             <div class="navbar-collapse collapse navigation-holder" id="navbar">
                 <button class="close-navbar"><i class="ti-close"></i></button>
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{route('home')}}">Accueil</a>
+                    </li>
+                    <li><a href="{{route('about-us')}}">À Propos</a></li>
                     <li class="menu-item-has-children">
-                        <a href="#">Home</a>
+                        <a href="{{route('product-grids')}}">Produits</a>
                         <ul class="sub-menu">
-                            <li><a href="index.html">Home default</a></li>
-                            <li><a href="index-2.html">Home style 2</a></li>
+                            @foreach(Helper::getAllCategory() as $cat)
+                                <li>
+                                    <a href="{{route('product-cat',$cat->slug)}}">
+                                        {{$cat->title}}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </li>
-                    <li><a href="about.html">about</a></li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Services</a>
-                        <ul class="sub-menu">
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="service-single.html">Services Single</a></li>
-                        </ul>
+                    {{-- <li>
+                        <a href="{{route('contact')}}">Références</a>
+                    </li> --}}
+                    <li>
+                        <a href="{{route('promotions')}}">Promotions</a>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">project</a>
-                        <ul class="sub-menu">
-                            <li><a href="portfolio.html">project</a></li>
-                            <li><a href="portfolio-single.html">project single</a></li>
-                        </ul>
+                    <li>
+                        <a href="{{route('contact')}}">Contact</a>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="team.html">Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="404.html">404</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                            <li><a href="blog-fullwidth.html">Blog full width</a></li>
-                            <li><a href="blog-single.html">Blog details</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <!-- end of nav-collapse -->

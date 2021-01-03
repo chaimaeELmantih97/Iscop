@@ -1,11 +1,11 @@
 @extends('backend.layouts.master')
-@section('title','Beauty Design - DASHBOARD')
+@section('title','Beauty Design - Tableau de bord')
 @section('main-content')
 <div class="container-fluid">
     @include('backend.layouts.notification')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+      <h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
     </div>
 
     <!-- Content Row -->
@@ -17,7 +17,7 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Category</div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Categories</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Category::countActiveCategory()}}</div>
               </div>
               <div class="col-auto">
@@ -34,33 +34,11 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Products</div>
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Produits</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Product::countActiveProduct()}}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-cubes fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Order -->
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Order</div>
-                <div class="row no-gutters align-items-center">
-                  <div class="col-auto">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\Models\Order::countActiveOrder()}}</div>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -73,7 +51,55 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Post</div>
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Blogs</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Post::countActivePost()}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-folder fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Posts-->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Services</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Post::countActivePost()}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-folder fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Posts-->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Promotions</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Post::countActivePost()}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-folder fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Posts-->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-secondary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Références</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Post::countActivePost()}}</div>
               </div>
               <div class="col-auto">
@@ -84,7 +110,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
 
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
@@ -116,7 +142,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Content Row -->
     
   </div>

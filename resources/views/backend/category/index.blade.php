@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des Catégories</h6>
+      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter une Catégorie</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,25 +18,25 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
+              <th>Numéro</th>
+              <th>Titre</th>
+              {{-- <th>Slug</th> --}}
+              {{-- <th>Is Parent</th>
+              <th>Parent Category</th> --}}
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
+              <th>Numéro</th>
+              <th>Titre</th>
+              {{-- <th>Slug</th> --}}
+              {{-- <th>Is Parent</th>
+              <th>Parent Category</th> --}}
               <th>Photo</th>
-              <th>Status</th>
+              <th>Statut</th>
               <th>Action</th>
             </tr>
           </tfoot>
@@ -51,13 +51,13 @@
                 <tr>
                     <td>{{$category->id}}</td>
                     <td>{{$category->title}}</td>
-                    <td>{{$category->slug}}</td>
-                    <td>{{(($category->is_parent==1)? 'Yes': 'No')}}</td>
-                    <td>
+                    {{-- <td>{{$category->slug}}</td> --}}
+                    {{-- <td>{{(($category->is_parent==1)? 'Yes': 'No')}}</td> --}}
+                    {{-- <td>
                         @foreach($parent_cats as $parent_cat)
                             {{$parent_cat->title}}
                         @endforeach
-                    </td>
+                    </td> --}}
                     <td>
                         @if($category->photo)
                             <img src="{{$category->photo}}" class="img-fluid" style="max-width:80px" alt="{{$category->photo}}">
@@ -106,7 +106,7 @@
         </table>
         <span style="float:right">{{$categories->links()}}</span>
         @else
-          <h6 class="text-center">No Categories found!!! Please create Category</h6>
+          <h6 class="text-center">Aucune Catégorie Trouvée!</h6>
         @endif
       </div>
     </div>
@@ -142,40 +142,38 @@
                 }
             ]
         } );
-
         // Sweet alert
-
         function deleteData(id){
             
         }
   </script>
   <script>
-      $(document).ready(function(){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-          $('.dltBtn').click(function(e){
-            var form=$(this).closest('form');
-              var dataID=$(this).data('id');
-              // alert(dataID);
-              e.preventDefault();
-              swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                       form.submit();
-                    } else {
-                        swal("Your data is safe!");
-                    }
-                });
-          })
-      })
+    $(document).ready(function(){
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+        $('.dltBtn').click(function(e){
+          var form=$(this).closest('form');
+            var dataID=$(this).data('id');
+            // alert(dataID);
+            e.preventDefault();
+            swal({
+                  title: "Êtes-vous sûr?",
+                  text: "Une fois supprimées, vous ne pourrez plus récupérer ces données!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                  if (willDelete) {
+                     form.submit();
+                  } else {
+                      swal("Vos données sont en sécurité!");
+                  }
+              });
+        })
+    })
   </script>
 @endpush
