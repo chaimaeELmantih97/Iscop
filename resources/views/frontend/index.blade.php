@@ -140,76 +140,6 @@
 </section>
 <!-- end of Service -->
 
-
-{{-- <!-- start Team -->
-<section class="arkit-team section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-5 col-xl-12 col-lg-offset-3 col-md-offset-3">
-                <div class="section-title text-center">
-                    <h2>Arkit engineer <span>always ready</span> for help you.</h2>
-                </div>
-            </div>
-        </div>
-        <!--/Row-->
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xl-12">
-                <div class="arkit-member">
-                    <img alt="" class="img-responlsive" src="{{asset('frontend/assets/images/team/img-1.jpg')}}">
-                    <div class="team-info">
-                        <h4>Josette Wadsworth</h4>
-                        <p>Senior Engineer</p>
-                    </div>
-                </div>
-            </div>
-            <!--/col-->
-
-            <div class="col-lg-3 col-sm-6 col-xl-12">
-                <div class="arkit-member">
-                    <img alt="" class="img-responlsive" src="{{asset('frontend/assets/images/team/img-2.jpg')}}">
-                    <div class="team-info">
-                        <h4>Beulah Arnold</h4>
-                        <p>Senior Architect</p>
-                    </div>
-                </div>
-            </div>
-            <!--/col-->
-
-            <div class="col-lg-3 col-sm-6 col-xl-12">
-                <div class="arkit-member">
-                    <img alt="" class="img-responlsive" src="{{asset('frontend/assets/images/team/img-3.jpg')}}">
-                    <div class="team-info">
-                        <h4>Melissa Figueroa</h4>
-                        <p>Senior Engineer</p>
-                    </div>
-                </div>
-            </div>
-            <!--/col-->
-
-            <div class="col-lg-3 col-sm-6 col-xl-12">
-                <div class="arkit-member">
-                    <img alt="" class="img-responlsive" src="{{asset('frontend/assets/images/team/img-4.jpg')}}">
-                    <div class="team-info">
-                        <h4>Monique Cannon</h4>
-                        <p>Junior Architect</p>
-                    </div>
-                </div>
-            </div>
-            <!--/col-->
-
-        </div>
-        <!--/Row-->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <a class="join-team-btn" href="team.html">SEE OUR TEAMS<span>+</span></a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end of Team --> --}}
-
-
 @if (count($catalogs) != 0)
     <!-- start Status -->
     <section class="arkit-status section-padding">
@@ -236,8 +166,8 @@
                                     <h3 style="line-height: 0.7">
                                         <span style="font-size: 30px;">{{$catalog->title}}</span>
                                     </h3>
-                                    <p class="download-btn">
-                                        <i class="fas fa-download"></i> Télécharger 
+                                    <p>
+                                        <i class="fas fa-download download-btn"></i><span class="download-btn"> Télécharger </span>
                                     </p>
                                 </a>
                             </div><!--/col-->
@@ -249,7 +179,7 @@
         <div class="status-note">
             <h3>N’hésitez pas à nous contacter pour échanger au sujet de l’aménagement de votre espace professionnel ou Vos Dépôts de Stockage.</h3>
             <div class="bottom">
-                <a class="read-more-btn" href="contact.html">CONTACT US <span>+</span></a>
+                <a class="read-more-btn" href="{{route('contact')}}">CONTACT US <span>+</span></a>
                 <div class="icon">
                     <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/status/shelves.svg')}}" style="height: 50px; object-fit: contain">
                 </div>
@@ -258,150 +188,6 @@
     </section>
     <!-- end of Status -->
 @endif
-
-
-{{-- <!-- start portfolio -->
-<section class="portfolio section-padding">
-    <div class="container-fluid">
-        <div class="row display-flex-title">
-            <div class="col-lg-6 col-md-7 col-xs-12">
-                <div class="section-title text-center">
-                    <span>Our Portfolio</span>
-                    <h2>Arkit always believes in quality. <span>Some work</span> for customers.</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="owl-carousel owl-theme work-portfolio-slider">
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-1.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-2.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-3.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-4.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-1.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-2.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-3.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                    <div class="item">
-                        <div class="single-work">
-                            <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/portfolio/img-4.jpg')}}">
-                            <div class="hover_layer">
-                                <div class="info">
-                                    <h3><a href="portfolio-single.html">Concrete Staircase</a></h3>
-                                    <p>Muriddban, USA</p>
-                                </div>
-                                <div class="details-btn">
-                                    <a class="portfolio-btn" href="portfolio-single.html">+</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/item-->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end of portfolio --> --}}
-
 
 @if (count($testimonials) != 0)
     <!-- start testimonial -->

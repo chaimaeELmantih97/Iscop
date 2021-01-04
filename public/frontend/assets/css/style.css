@@ -3004,6 +3004,7 @@ img {
 
 .arkit-single-service .content-inner {
     border: 2px solid #fff6e4;
+    background-color: #fff;
     border-top: none;
     padding: 30px;
     -webkit-transition: all 0.3s ease;
