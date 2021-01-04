@@ -51,9 +51,9 @@ class PostController extends Controller
             'summary'=>'string|required',
             'description'=>'string|nullable',
             'photo'=>'string|nullable',
-            'tags'=>'nullable',
+            // 'tags'=>'nullable',
             'added_by'=>'nullable',
-            'post_cat_id'=>'required',
+            // 'post_cat_id'=>'required',
             'status'=>'required|in:active,inactive'
         ]);
 
@@ -66,21 +66,12 @@ class PostController extends Controller
         }
         $data['slug']=$slug;
 
-        $tags=$request->input('tags');
-        if($tags){
-            $data['tags']=implode(',',$tags);
-        }
-        else{
-            $data['tags']='';
-        }
-        // return $data;
-
         $status=Post::create($data);
         if($status){
-            request()->session()->flash('success','Post Successfully added');
+            request()->session()->flash('success','Article ajouté avec succès');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Veuillez réessayer !');
         }
         return redirect()->route('post.index');
     }
@@ -128,29 +119,18 @@ class PostController extends Controller
             'summary'=>'string|required',
             'description'=>'string|nullable',
             'photo'=>'string|nullable',
-            'tags'=>'nullable',
             'added_by'=>'nullable',
-            'post_cat_id'=>'required',
             'status'=>'required|in:active,inactive'
         ]);
 
         $data=$request->all();
-        $tags=$request->input('tags');
-        // return $tags;
-        if($tags){
-            $data['tags']=implode(',',$tags);
-        }
-        else{
-            $data['tags']='';
-        }
-        // return $data;
 
         $status=$post->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Post Successfully updated');
+            request()->session()->flash('success','Article mise à jour réussie');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Veuillez réessayer !');
         }
         return redirect()->route('post.index');
     }
@@ -168,10 +148,10 @@ class PostController extends Controller
         $status=$post->delete();
         
         if($status){
-            request()->session()->flash('success','Post successfully deleted');
+            request()->session()->flash('success','Article supprimé avec succès');
         }
         else{
-            request()->session()->flash('error','Error while deleting post ');
+            request()->session()->flash('error','Veuillez réessayer !');
         }
         return redirect()->route('post.index');
     }

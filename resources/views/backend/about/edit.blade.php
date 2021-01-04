@@ -3,7 +3,7 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Modifier la page d'à propos</h5>
+    <h5 class="card-header">Modifier la page de <b>À propos</b></h5>
     <div class="card-body">
       <form method="post" action="{{route('about.update',$about->id)}}">
         @csrf 
@@ -66,5 +66,13 @@
   <script src="{{asset('backend/summernote/summernote.min.js')}}"></script>
   <script>
       $('#lfm').filemanager('image');
+
+      $(document).ready(function() {
+        $('#inputDesc').summernote({
+          placeholder: "Write detail description.....",
+            tabsize: 2,
+            height: 150
+        });
+      });
   </script>
 @endpush

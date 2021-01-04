@@ -29,12 +29,12 @@
 	<section class="arkit-about2 section-padding">
 		<div class="container">
 			<div class="row display-flex">
-				<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="col-lg-12 col-md-12 col-xs-12">
 					<div class="arkit-about-inner">
 						<span>Present dans le marché depuis 2015</span>
 						<h2>{{$about->title}}</h2>
 						<p>
-							{{$about->description}}
+							{!! html_entity_decode($about->description) !!}
 						</p>
 						<div class="contact-number">
 							<div class="content">
@@ -48,11 +48,11 @@
 					</div>
 				</div>
 				<!--/col-->
-				<div class="col-lg-7 col-md-6 col-xl-12">
+				{{-- <div class="col-lg-7 col-md-6 col-xl-12">
 					<div class="about-img">
 						<img alt="{{$about->photo}}" src="{{$about->photo}}">
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</section>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Beauty Design - Brand Page')
+
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -9,56 +9,44 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des Clients</h6>
-      <a href="{{route('brand.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter un Client</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des Catalogues</h6>
+      <a href="{{route('catalog.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter un Catalogue</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        @if(count($brands)>0)
+        @if(count($catalogs)>0)
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th>Numéro</th>
-              <th>Nom</th>
-              <th>Photo</th>
-              <th>Statut</th>
+              <th>Titre</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>Numéro</th>
-              <th>Nom</th>
-              <th>Photo</th>
-              <th>Statut</th>
+              <th>Titre</th>
               <th>Action</th>
-              </tr>
+            </tr>
           </tfoot>
           <tbody>
-            @foreach($brands as $brand)   
+           
+            @foreach($catalogs as $catalog)   
+              @php 
+              $parent_cats=DB::table('catalogs')->select('title')->where('id',$catalog->parent_id)->get();
+              // dd($parent_cats);
+
+              @endphp
                 <tr>
-                    <td>{{$brand->id}}</td>
-                    <td>{{$brand->title}}</td>
-                    <td>  
-                      @if($brand->photo)
-                          <img src="{{$brand->photo}}" class="img-fluid" style="max-width:80px" alt="{{$brand->photo}}">
-                      @else
-                          <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
-                      @endif  
-                    </td>
+                    <td>{{$catalog->id}}</td>
+                    <td>{{$catalog->title}}</td>
                     <td>
-                        @if($brand->status=='active')
-                            <span class="badge badge-success">{{$brand->status}}</span>
-                        @else
-                            <span class="badge badge-warning">{{$brand->status}}</span>
-                        @endif
-                    </td>
-                    <td>
-                        <a href="{{route('brand.edit',$brand->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                        <form method="POST" action="{{route('brand.destroy',[$brand->id])}}">
-                          @csrf 
-                          @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$brand->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                        <a href="{{route('catalog.edit',$catalog->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                    <form method="POST" action="{{route('catalog.destroy',[$catalog->id])}}">
+                      @csrf 
+                      @method('delete')
+                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$catalog->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     {{-- Delete Modal --}}
@@ -72,7 +60,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form method="post" action="{{ route('banners.destroy',$user->id) }}">
+                              <form method="post" action="{{ route('catalogs.destroy',$user->id) }}">
                                 @csrf 
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
@@ -85,9 +73,9 @@
             @endforeach
           </tbody>
         </table>
-        <span style="float:right">{{$brands->links()}}</span>
+        <span style="float:right">{{$catalogs->links()}}</span>
         @else
-          <h6 class="text-center">Aucun Client Trouvé!</h6>
+          <h6 class="text-center">Aucune Catégorie Trouvée!</h6>
         @endif
       </div>
     </div>
@@ -100,13 +88,6 @@
   <style>
       div.dataTables_wrapper div.dataTables_paginate{
           display: none;
-      }
-      .zoom {
-        transition: transform .2s; /* Animation */
-      }
-
-      .zoom:hover {
-        transform: scale(3.2);
       }
   </style>
 @endpush
@@ -126,23 +107,11 @@
             "columnDefs":[
                 {
                     "orderable":false,
-                    "targets":[3,4]
+                    "targets":[3,4,5]
                 }
             ]
         } );
-
         // Sweet alert
-
-        function deleteData(id){
-            
-        }
-  </script>
-  <script>
-      
-      $('#banner-dataTable').DataTable();
-
-        // Sweet alert
-
         function deleteData(id){
             
         }
@@ -168,7 +137,7 @@
               })
               .then((willDelete) => {
                   if (willDelete) {
-                    form.submit();
+                     form.submit();
                   } else {
                       swal("Vos données sont en sécurité!");
                   }

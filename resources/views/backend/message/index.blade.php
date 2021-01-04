@@ -6,15 +6,15 @@
        @include('backend.layouts.notification')
     </div>
   </div>
-  <h5 class="card-header">Messages</h5>
+  <h5 class="card-header">Liste des Messages</h5>
   <div class="card-body">
     @if(count($messages)>0)
     <table class="table message-table" id="message-dataTable">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Subject</th>
+          <th scope="col">Numéro</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Objet</th>
           <th scope="col">Date</th>
           <th scope="col">Action</th>
         </tr>
@@ -44,7 +44,7 @@
       {{$messages->links()}}
     </nav>
     @else
-      <h2>Messages Empty!</h2>
+      <h4 style="text-align: center">Aucun Message Trouvé!</h4>
     @endif
   </div>
 </div>

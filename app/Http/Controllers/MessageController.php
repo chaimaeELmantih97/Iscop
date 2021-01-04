@@ -43,9 +43,9 @@ class MessageController extends Controller
         $this->validate($request,[
             'name'=>'string|required|min:2',
             'email'=>'email|required',
-            'message'=>'required|min:20|max:200',
+            'message'=>'required|max:200',
             'subject'=>'string|required',
-            'phone'=>'numeric|required'
+            'phone'=>'string|required'
         ]);
         // return $request->all();
 
@@ -59,10 +59,17 @@ class MessageController extends Controller
         $data['phone']=$message->phone;
         $data['message']=$message->message;
         $data['subject']=$message->subject;
-        $data['photo']=Auth()->user()->photo;
+        $data['photo']='';
         // return $data;    
         event(new MessageSent($data));
-        exit();
+        
+        if($message){
+            request()->session()->flash('success','Message envoyé avec succès');
+        }
+        else{
+            request()->session()->flash('error','Veuillez réessayer !');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -118,10 +125,10 @@ class MessageController extends Controller
         $message=Message::find($id);
         $status=$message->delete();
         if($status){
-            request()->session()->flash('success','Successfully deleted message');
+            request()->session()->flash('success','Message supprimé avec succès');
         }
         else{
-            request()->session()->flash('error','Error occurred please try again');
+            request()->session()->flash('error','Veuillez Réessayer !');
         }
         return back();
     }

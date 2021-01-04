@@ -2,12 +2,12 @@
     $settings=DB::table('settings')->get();
 @endphp
 <!-- Start header -->
-<header class="site-header header-style-1" id="header" style="z-index: 99999">
+<header class="site-header header-style-1" id="header">
 
     <nav class="navigation navbar navbar-default">
         <div class="container-fluid">
             <div class="logo">
-                <a href="index.html"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
+                <a href="{{route('home')}}"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
             </div>
 
             <div class="navbar-header">
@@ -38,9 +38,9 @@
                             @endforeach
                         </ul>
                     </li>
-                    {{-- <li>
-                        <a href="{{route('contact')}}">Références</a>
-                    </li> --}}
+                    <li>
+                        <a href="{{route('blog')}}">Blog</a>
+                    </li>
                     <li>
                         <a href="{{route('promotions')}}">Promotions</a>
                     </li>
@@ -55,9 +55,9 @@
                 <ul>
                     {{-- <li><a href="javascript:"><i class="ti-pinterest"></i></a></li>
                     <li><a href="javascript:"><i class="ti-skype"></i></a></li> --}}
-                    <li><a href="javascript:"><i class="ti-instagram"></i></a></li>
-                    <li><a href="javascript:"><i class="ti-linkedin"></i></a></li>
-                    <li><a href="javascript:"><i class="ti-facebook"></i></a></li>
+                    <li><a href="@foreach($settings as $data) {{$data->facebook}} @endforeach"><i class="ti-facebook"></i></a></li>
+                    <li><a href="@foreach($settings as $data) {{$data->linkedin}} @endforeach"><i class="ti-linkedin"></i></a></li>
+                    <li><a href="@foreach($settings as $data) {{$data->instagram}} @endforeach"><i class="ti-instagram"></i></a></li>
                 </ul>
             </div>
         </div>

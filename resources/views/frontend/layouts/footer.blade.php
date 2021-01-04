@@ -11,12 +11,13 @@
 					<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-2">
 						<div class="widget about-widget">
 							<div class="widget-title">
-								<a class="logo" href="javascript:"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
+								<a class="logo" href="{{route('home')}}" style="padding: 20px"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
 							</div>
 							<ul>
 								<li>
 									<div class="icon">
-										<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/call.svg')}}">
+										<i class="fa fa-phone"></i>
+										{{-- <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/call.svg')}}"> --}}
 									</div>
 									<div class="content">
 										<p>Appelez-nous:</p>
@@ -25,7 +26,8 @@
 								</li>
 								<li>
 									<div class="icon">
-										<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/envelope-open.svg')}}">
+										<i class="fa fa-paper-plane"></i>
+										{{-- <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/envelope-open.svg')}}"> --}}
 									</div>
 									<div class="content">
 										<p>Email:</p>
@@ -34,7 +36,8 @@
 								</li>
 								<li>
 									<div class="icon">
-										<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/gps.svg')}}">
+										<i class="fa fa-map-marker-alt"></i>
+										{{-- <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/gps.svg')}}"> --}}
 									</div>
 									<div class="content">
 										<p>Adresse:</p>
@@ -52,7 +55,7 @@
 									<h2>Nous sommes toujours prêts à résoudre vos problèmes.</h2>
 								</div>
 							</div>
-							<form class="contact-validation-active" id="contact-form-main" method="post" action="{{route('contact.store')}}">
+							<form class="contact-validation-active" method="post" action="{{route('contact.store')}}">
 								@csrf
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
@@ -119,7 +122,7 @@
 								<li><a href="{{route('home')}}">Accueil</a></li>
 								<li><a href="{{route('about-us')}}">À Propos</a></li>
 								<li><a href="{{route('product-grids')}}">Produits</a></li>
-								{{-- <li><a href="{{route('home')}}">Références</a></li> --}}
+								<li><a href="{{route('blog')}}">Blog</a></li>
 								<li><a href="{{route('promotions')}}">Promotions</a></li>
 								<li><a href="{{route('contact')}}">Contact</a></li>
 							</ul>
@@ -141,10 +144,9 @@
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="social-icons">
 						<ul>
-							<li><a href="#"><i class="ti-skype"></i></a></li>
-							<li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-							<li><a href="#"><i class="ti-facebook"></i></a></li>
-							<li><a href="#"><i class="ti-linkedin"></i></a></li>
+							<li><a href="@foreach($settings as $data) {{$data->facebook}} @endforeach"><i class="ti-facebook"></i></a></li>
+							<li><a href="@foreach($settings as $data) {{$data->linkedin}} @endforeach"><i class="ti-linkedin"></i></a></li>
+							<li><a href="@foreach($settings as $data) {{$data->instagram}} @endforeach"><i class="ti-instagram"></i></a></li>
 						</ul>
 					</div>
 				</div><!-- /col -->

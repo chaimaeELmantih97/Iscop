@@ -9,7 +9,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col col-xs-12">
-					<h2>Contact</h2>
+					<h2 style="margin-top: 50px">Contact</h2>
 					<ol class="breadcrumb">
 						<li><a href="{{route('home')}}">Accueil</a></li>
 						<li>Contact</li>
@@ -31,7 +31,7 @@
 							<h2>Nous sommes toujours prêts à résoudre vos problèmes.</h2>
 						</div>
 						<div class="get-contact-form">
-							<form class="contact-validation-active" id="contact-form-main" method="post" action="{{route('contact.store')}}">
+							<form class="contact-validation-active" method="post" action="{{route('contact.store')}}">
 								@csrf
 								<div class="row">
 									<div class="col-lg-6">
@@ -78,8 +78,8 @@
 				<div class="col-lg-5 col-md-5">
 					<div class="right-image">
 						<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/get-in-touch.png')}}">
-						<div class="quote">
-							<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/get-in-touch-quote.svg')}}">
+						<div class="quote" style="z-index: 0">
+							<img alt="" class="img-responsive" src="{{asset('frontend/assets/images/get-in-touch-quote.svg')}}" style="filter: hue-rotate(120deg);">
 						</div>
 					</div>
 				</div>
@@ -95,7 +95,7 @@
 				<div class="col-md-12">
 					<h2 class="hidden">Adresse</h2>
 					<div class="contact-map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147703055!2d-74.11976314309273!3d40.69740344223377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbd!4v1547528325671" allowfullscreen></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13305.720347257215!2d-7.6481879!3d33.5162019!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62d07a826b0d9%3A0x6464ebaae0d1d64e!2sSidi%20Maarouf%2C%20Casablanca!5e0!3m2!1sfr!2sma!4v1609755696934!5m2!1sfr!2sma" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>

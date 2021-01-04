@@ -90,7 +90,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#serviceCollapse"
             aria-expanded="true" aria-controls="serviceCollapse">
-            <i class="fas fa-cubes"></i>
+            <i class="fas fa-table"></i>
             <span>Services</span>
         </a>
         <div id="serviceCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -105,7 +105,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#catalogCollapse" aria-expanded="true"
             aria-controls="catalogCollapse">
-            <i class="fas fa-image"></i>
+            <i class="fas fa-table"></i>
             <span>Catalogues</span>
         </a>
         <div id="catalogCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -120,7 +120,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonialCollapse" aria-expanded="true"
             aria-controls="testimonialCollapse">
-            <i class="fas fa-image"></i>
+            <i class="fas fa-table"></i>
             <span>Témoignages</span>
         </a>
         <div id="testimonialCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -135,7 +135,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#promotionCollapse"
             aria-expanded="true" aria-controls="promotionCollapse">
-            <i class="fas fa-cubes"></i>
+            <i class="fas fa-table"></i>
             <span>Promotions</span>
         </a>
         <div id="promotionCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -143,6 +143,21 @@
                 <h6 class="collapse-header">Options de Promotion:</h6>
                 <a class="collapse-item" href="{{route('promotion.index')}}">Promotions</a>
                 <a class="collapse-item" href="{{route('promotion.create')}}">Ajouter une Promotion</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true"
+            aria-controls="brandCollapse">
+            <i class="fas fa-table"></i>
+            <span>Clients</span>
+        </a>
+        <div id="brandCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Options de Client:</h6>
+                <a class="collapse-item" href="{{route('brand.index')}}">Clients</a>
+                <a class="collapse-item" href="{{route('brand.create')}}">Ajouter un Client</a>
             </div>
         </div>
     </li>
@@ -154,21 +169,6 @@
     </li>
 
     {{-- 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true"
-            aria-controls="brandCollapse">
-            <i class="fas fa-table"></i>
-            <span>Brands</span>
-        </a>
-        <div id="brandCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Brand Options:</h6>
-                <a class="collapse-item" href="{{route('brand.index')}}">Brands</a>
-                <a class="collapse-item" href="{{route('brand.create')}}">Add Brand</a>
-            </div>
-        </div>
-    </li>
-
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse"
             aria-expanded="true" aria-controls="shippingCollapse">
@@ -257,12 +257,12 @@
     </li> --}}
 
     <!-- Comments -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{route('comment.index')}}">
             <i class="fas fa-comments fa-chart-area"></i>
             <span>Commentaires</span>
         </a>
-    </li>
+    </li> --}}
 
 
     <!-- Divider -->

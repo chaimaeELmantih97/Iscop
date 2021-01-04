@@ -229,7 +229,7 @@
                             @else
                                 <div class="col-lg-12">
                             @endif
-                                <a class="single-status">
+                                <a href="{{$catalog->file}}" target="_blank" class="single-status">
                                     <div class="icon">
                                         <i class="fa fa-file-pdf download-btn" style="font-size: 50px;"></i>
                                     </div>
@@ -429,7 +429,7 @@
                                             <p>{{$testimonial->job}}</p>
                                         </div>
                                         <div class="feedback">
-                                            <span class="quote"><img alt="" class="img-responsive" src="{{asset('frontend/assets/images/testimonials/quote.svg')}}"></span>
+                                            <span class="quote"><img alt="" class="img-responsive" src="{{asset('frontend/assets/images/testimonials/quote.svg')}}" style="filter: hue-rotate(120deg)"></span>
                                             <p>
                                                 {{$testimonial->description}}
                                             </p>
