@@ -25,7 +25,14 @@
           @enderror
         </div>
 
-        <div class="row">
+        <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
+          <input id="inputTitle" type="date" name="title" placeholder="Entrer le titre."  value="{{old('title')}}" class="form-control">
+          @error('title')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- <div class="row">
           <div class="col">
             <div class="form-group">
               <label for="inputTitleColor" class="col-form-label">Couleur de titre</label>
@@ -44,8 +51,8 @@
               @enderror
             </div>
           </div>
-        </div>
-        
+        </div> --}}
+
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
         <div class="input-group">
@@ -61,7 +68,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
           <select name="status" class="form-control">

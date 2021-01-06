@@ -27,9 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
-        // $parent_cats=Category::where('is_parent',1)->orderBy('title','ASC')->get();
-        // return view('backend.category.create')->with('parent_cats',$parent_cats);
+        $parent_cats=Category::where('is_parent',1)->orderBy('title','ASC')->get();
+        return view('backend.category.create')->with('parent_cats',$parent_cats);
     }
 
     /**
@@ -44,10 +43,11 @@ class CategoryController extends Controller
         $this->validate($request,[
             'title'=>'string|required',
             'summary'=>'string|nullable',
+            'description'=>'string|nullable',
             'photo'=>'string|nullable',
             'status'=>'required|in:active,inactive',
-            // 'is_parent'=>'sometimes|in:1',
-            // 'parent_id'=>'nullable|exists:categories,id',
+            'is_parent'=>'sometimes|in:1',
+            'parent_id'=>'nullable|exists:categories,id',
         ]);
         $data= $request->all();
         $slug=Str::slug($request->title);
@@ -56,14 +56,14 @@ class CategoryController extends Controller
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
         }
         $data['slug']=$slug;
-        // $data['is_parent']=$request->input('is_parent',0);
-        // return $data;   
+        $data['is_parent']=$request->input('is_parent',0);
+        // return $data;
         $status=Category::create($data);
         if($status){
-            request()->session()->flash('success','Catégorie ajoutée avec succès');
+            request()->session()->flash('success','Category successfully added');
         }
         else{
-            request()->session()->flash('error','Une erreur s\'est produite, veuillez réessayer !');
+            request()->session()->flash('error','Error occurred, Please try again!');
         }
         return redirect()->route('category.index');
 
@@ -89,11 +89,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+        $parent_cats=Category::where('is_parent',1)->get();
         $category=Category::findOrFail($id);
-        return view('backend.category.edit')->with('category',$category);
-        // $parent_cats=Category::where('is_parent',1)->get();
-        // $category=Category::findOrFail($id);
-        // return view('backend.category.edit')->with('category',$category)->with('parent_cats',$parent_cats);
+        return view('backend.category.edit')->with('category',$category)->with('parent_cats',$parent_cats);
     }
 
     /**
@@ -111,18 +109,18 @@ class CategoryController extends Controller
             'summary'=>'string|nullable',
             'photo'=>'string|nullable',
             'status'=>'required|in:active,inactive',
-            // 'is_parent'=>'sometimes|in:1',
-            // 'parent_id'=>'nullable|exists:categories,id',
+            'is_parent'=>'sometimes|in:1',
+            'parent_id'=>'nullable|exists:categories,id',
         ]);
         $data= $request->all();
-        // $data['is_parent']=$request->input('is_parent',0);
+        $data['is_parent']=$request->input('is_parent',0);
         // return $data;
         $status=$category->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Catégorie mise à jour avec succès');
+            request()->session()->flash('success','Category successfully updated');
         }
         else{
-            request()->session()->flash('error','Une erreur s\'est produite, veuillez réessayer !');
+            request()->session()->flash('error','Error occurred, Please try again!');
         }
         return redirect()->route('category.index');
     }
@@ -139,15 +137,15 @@ class CategoryController extends Controller
         $child_cat_id=Category::where('parent_id',$id)->pluck('id');
         // return $child_cat_id;
         $status=$category->delete();
-        
+
         if($status){
             if(count($child_cat_id)>0){
                 Category::shiftChild($child_cat_id);
             }
-            request()->session()->flash('success','Catégorie supprimée avec succès');
+            request()->session()->flash('success','Category successfully deleted');
         }
         else{
-            request()->session()->flash('error','Erreur lors de la suppression de la catégorie');
+            request()->session()->flash('error','Error while deleting category');
         }
         return redirect()->route('category.index');
     }

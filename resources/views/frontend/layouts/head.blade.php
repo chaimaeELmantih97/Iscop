@@ -1,30 +1,75 @@
-
-<meta charset="utf-8">
-<meta content="IE=edge" http-equiv="X-UA-Compatible">
-<meta content="width=device-width, initial-scale=1" name="viewport">
+<!-- Meta Tag -->
+@yield('meta')
 <!-- Title Tag  -->
 <title>@yield('title')</title>
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="images/favicon.png">
 
-<!-- PhotoSwipe -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css" integrity="sha512-yxWNfGm+7EK+hqP2CMJ13hsUNCQfHmOuCuLmOq2+uv/AVQtFAjlAJO8bHzpYGQnBghULqnPuY8NEr7f5exR3Qw==" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.css" integrity="sha512-QwSfZXX2w9SDWSNBKpEos673LXajTJpYKwtG+zJNP9zHsgRrWtNSx1gKVyB6qWUP4wJ0Hfnk9KJzrB6IKrXmEQ==" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js" integrity="sha512-2R4VJGamBudpzC1NTaSkusXP7QkiUYvEKhpJAxeVCqLDsgW4OqtzorZGpulE3eEA7p++U0ZYmqBwO3m+R2hRjA==" crossorigin="anonymous"></script>
+        <!-- meta tag -->
+        <meta charset="utf-8">
+        <title>ISCOP</title>
+        <meta name="description" content="">
+        <!-- responsive tag -->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        @php
+        $settings=DB::table('settings')->get();
+        @endphp
+        @foreach($settings as $data)
+          <link rel="shortcut icon" type="image/x-icon" href="{{$data->logo}}">
+        @endforeach
 
-<link href="{{asset('frontend/assets/css/themify-icons.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/flaticon.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/animate.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/owl.carousel.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/owl.theme.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/slick.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/slick-theme.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/swiper.min.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/owl.transitions.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/jquery.fancybox.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/jquery.bxslider.min.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/odometer-theme-default.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/style.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assets/css/responsive.css')}}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+        <!-- bootstrap v4 css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/bootstrap.min.css')}}">
+        <!-- font-awesome css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/font-awesome.min.css')}}">
+        <!-- animate css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/animate.css')}}">
+        <!-- owl.carousel css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/owl.carousel.css')}}">
+		<!-- slick css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/slick.css')}}">
+        <!-- magnific popup css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/magnific-popup.css')}}">
+		<!-- Offcanvas CSS -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/off-canvas.css')}}">
+		<!-- flaticon css  -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/fonts/flaticon.css')}}">
+		<!-- flaticon2 css  -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/fonts/fonts2/flaticon.css')}}">
+        <!-- rsmenu CSS -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/rsmenu-main.css')}}">
+        <!-- rsmenu transitions CSS -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/rsmenu-transitions.css')}}">
+        <!-- style css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/style.css')}}">
+         <!-- Spacing css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/spacing.css')}}">
+        <!-- responsive css -->
+        <link rel="stylesheet" type="text/css" href="{{url('frontend/css/responsive.css')}}">
+
+        <!-- jquery latest version -->
+        <script src="{{url('frontend/js/jquery.min.js')}}"></script>
+
+        <style>
+            /* width */
+            ::-webkit-scrollbar {
+            width: 8px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: #1474A6;
+            height: 200px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            background: #1474A6;
+            }
+        </style>

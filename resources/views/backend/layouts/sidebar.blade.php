@@ -35,44 +35,43 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="{{route('banner.index')}}" >
             <i class="fas fa-image"></i>
             <span>Bannières</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Options du Bannière:</h6>
                 <a class="collapse-item" href="{{route('banner.index')}}">Bannières</a>
                 <a class="collapse-item" href="{{route('banner.create')}}">Ajouter une Bannière</a>
             </div>
-        </div>
+        </div> --}}
     </li>
-    
+
     {{-- <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
         Produits
     </div> --}}
-    
+
     <!-- Categories -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse"
             aria-expanded="true" aria-controls="categoryCollapse">
             <i class="fas fa-sitemap"></i>
-            <span>Categories</span>
+            <span>Les Formations</span>
         </a>
         <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Options de Categorie :</h6>
-                <a class="collapse-item" href="{{route('category.index')}}">Categories</a>
-                <a class="collapse-item" href="{{route('category.create')}}">Ajouter une Categorie</a>
+                <h6 class="collapse-header">Options :</h6>
+                <a class="collapse-item" href="{{route('category.index')}}">La liste des formations</a>
+                <a class="collapse-item" href="{{route('category.create')}}">Ajouter une formation</a>
             </div>
         </div>
     </li>
-    
-    <li class="nav-item">
+
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse"
             aria-expanded="true" aria-controls="productCollapse">
             <i class="fas fa-cubes"></i>
@@ -85,7 +84,7 @@
                 <a class="collapse-item" href="{{route('product.create')}}">Ajouter un Produit</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#serviceCollapse"
@@ -101,7 +100,7 @@
             </div>
         </div>
     </li>
-    
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#catalogCollapse" aria-expanded="true"
             aria-controls="catalogCollapse">
@@ -161,14 +160,14 @@
             </div>
         </div>
     </li>
-    
+
     <li class="nav-item">
         <a class="nav-link" href="{{route('about.edit')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>À Propos</span></a>
     </li>
 
-    {{-- 
+    {{--
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse"
             aria-expanded="true" aria-controls="shippingCollapse">

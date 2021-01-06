@@ -6,7 +6,7 @@
     <h5 class="card-header">Modifier la Bannière</h5>
     <div class="card-body">
       <form method="post" action="{{route('banner.update',$banner->id)}}">
-        @csrf 
+        @csrf
         @method('PATCH')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
@@ -24,7 +24,14 @@
           @enderror
         </div>
 
-        <div class="row">
+        <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Date <span class="text-danger">*</span></label>
+          <input id="inputTitle" type="date" name="date"  required value="{{$banner->date}}" class="form-control">
+          @error('date')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- <div class="row">
           <div class="col">
             <div class="form-group">
               <label for="inputTitleColor" class="col-form-label">Couleur de titre</label>
@@ -43,7 +50,7 @@
               @enderror
             </div>
           </div>
-        </div>
+        </div> --}}
 
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
@@ -60,7 +67,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
           <select name="status" class="form-control">

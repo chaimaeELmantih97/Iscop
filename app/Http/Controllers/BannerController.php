@@ -100,8 +100,6 @@ class BannerController extends Controller
             'title'=>'string|required|max:50',
             'description'=>'string|nullable',
             'photo'=>'string|required',
-            'title_color'=>'string|required',
-            'description_color'=>'string|required',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();

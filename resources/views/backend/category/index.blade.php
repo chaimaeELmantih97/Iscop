@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des Catégories</h6>
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter une Catégorie</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des formations</h6>
+      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,32 +18,19 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Numéro</th>
-              <th>Titre</th>
-              {{-- <th>Slug</th> --}}
-              {{-- <th>Is Parent</th>
-              <th>Parent Category</th> --}}
+              <th>ID</th>
+              <th>titre</th>
+              <th>Est parent</th>
+              <th>Formation mére</th>
               <th>Photo</th>
-              <th>Statut</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tfoot>
-            <tr>
-              <th>Numéro</th>
-              <th>Titre</th>
-              {{-- <th>Slug</th> --}}
-              {{-- <th>Is Parent</th>
-              <th>Parent Category</th> --}}
-              <th>Photo</th>
-              <th>Statut</th>
-              <th>Action</th>
-            </tr>
-          </tfoot>
           <tbody>
-           
-            @foreach($categories as $category)   
-              @php 
+
+            @foreach($categories as $category)
+              @php
               $parent_cats=DB::table('categories')->select('title')->where('id',$category->parent_id)->get();
               // dd($parent_cats);
 
@@ -51,13 +38,12 @@
                 <tr>
                     <td>{{$category->id}}</td>
                     <td>{{$category->title}}</td>
-                    {{-- <td>{{$category->slug}}</td> --}}
-                    {{-- <td>{{(($category->is_parent==1)? 'Yes': 'No')}}</td> --}}
-                    {{-- <td>
+                    <td>{{(($category->is_parent==1)? 'Oui': 'Non')}}</td>
+                    <td>
                         @foreach($parent_cats as $parent_cat)
                             {{$parent_cat->title}}
                         @endforeach
-                    </td> --}}
+                    </td>
                     <td>
                         @if($category->photo)
                             <img src="{{$category->photo}}" class="img-fluid" style="max-width:80px" alt="{{$category->photo}}">
@@ -75,7 +61,7 @@
                     <td>
                         <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('category.destroy',[$category->id])}}">
-                      @csrf 
+                      @csrf
                       @method('delete')
                           <button class="btn btn-danger btn-sm dltBtn" data-id={{$category->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
@@ -92,7 +78,7 @@
                             </div>
                             <div class="modal-body">
                               <form method="post" action="{{ route('categorys.destroy',$user->id) }}">
-                                @csrf 
+                                @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
                               </form>
@@ -100,13 +86,13 @@
                           </div>
                         </div>
                     </div> --}}
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
         <span style="float:right">{{$categories->links()}}</span>
         @else
-          <h6 class="text-center">Aucune Catégorie Trouvée!</h6>
+          <h6 class="text-center">Aucune Formation trouvée !!! Veuillez créer une formation</h6>
         @endif
       </div>
     </div>
@@ -133,47 +119,48 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#banner-dataTable').DataTable( {
             "columnDefs":[
                 {
                     "orderable":false,
-                    "targets":[3,4,5]
                 }
             ]
         } );
+
         // Sweet alert
+
         function deleteData(id){
-            
+
         }
   </script>
   <script>
-    $(document).ready(function(){
-      $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-        $('.dltBtn').click(function(e){
-          var form=$(this).closest('form');
-            var dataID=$(this).data('id');
-            // alert(dataID);
-            e.preventDefault();
-            swal({
-                  title: "Êtes-vous sûr?",
-                  text: "Une fois supprimées, vous ne pourrez plus récupérer ces données!",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-              })
-              .then((willDelete) => {
-                  if (willDelete) {
-                     form.submit();
-                  } else {
-                      swal("Vos données sont en sécurité!");
-                  }
-              });
-        })
-    })
+      $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+          $('.dltBtn').click(function(e){
+            var form=$(this).closest('form');
+              var dataID=$(this).data('id');
+              // alert(dataID);
+              e.preventDefault();
+              swal({
+                    title: "Are you sure?",
+                    text: "Une fois effacées, vous ne pourrez plus récupérer ces données !",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                       form.submit();
+                    } else {
+                        swal("Vos données sont en sécurité !");
+                    }
+                });
+          })
+      })
   </script>
 @endpush

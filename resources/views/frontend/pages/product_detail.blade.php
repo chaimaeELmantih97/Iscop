@@ -5,338 +5,585 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="keywords" content="online shop, purchase, cart, ecommerce site, best online shopping">
-	<meta name="description" content="{{$product_detail->summary}}">
-	<meta property="og:url" content="{{route('product-detail',$product_detail->slug)}}">
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="{{$product_detail->title}}">
-	<meta property="og:image" content="{{$product_detail->photo}}">
-	<meta property="og:description" content="{{$product_detail->description}}">
 @endsection
-@section('title','Beauty Design - PRODUCT DETAIL')
+@section('title','ISCOP || PRODUCT DETAIL')
 @section('main-content')
+		<!-- Breadcrumbs Start -->
+		<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+		    <div class="breadcrumbs-inner">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-md-12 text-center">
+		                    <h1 class="page-title">{{$formation->title}}</h1>
+		                    <ul>
+		                        <li>
+		                            <a class="active" href="{{route('home')}}">Acceuil</a>
+		                        </li>
+		                        <li>{{$formation->title}}</li>
+		                    </ul>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- Breadcrumbs End -->
 
-	<!-- start page-title -->
-	<section class="page-title">
-		<div class="container">
-			<div class="row">
-				<div class="col col-xs-12">
-					<h2 style="margin-top: 50px">Détails de produit</h2>
-					<ol class="breadcrumb">
-						<li><a href="{{route('home')}}">Accueil</a></li>
-						<li>Détails de produit</li>
-					</ol>
-				</div>
-			</div> <!-- end row -->
-		</div> <!-- end container -->
-	</section>
-	<!-- end page-title -->
+		<!-- Courses Details Start -->
+        <div class="rs-courses-details pt-100 pb-70">
+            <div class="container">
+                <div class="row mb-30">
+                    <div class="col-lg-8 col-md-12">
+                	    <div class="detail-img">
+                	        <img src="{{url('frontend/images/courses/courses-details.jpg')}}" alt="Courses Images" />
+                            <div class="course-seats price">
+                	        	$50.0
+                	        </div>
+                	        <div class="course-seats">
+                	        	170 <span>SEATS</span>
+                	        </div>
+                	    </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <ul class="course-meta-style">
+                                    <li class="author">
+                                        <div class="image">
+                                            <img src="{{url('frontend/images/teachers/2.jpg')}}" width="60"  alt="">
+                                        </div>
+                                        <div class="author-name">
+                                            <a href="#">Alex Hilfisher</a>
+                                            <p>Teacher</p>
+                                        </div>
+                                    </li>
+                                    <li class="categories">
+                                        <a href="#" class="course-name">Spoken English</a>
+                                        <p>Categories</p>
+                                    </li>
+                                    <li>
+                                        4 Reviews
+                                        <div class="client-rating">
+                                            <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="btn-area">
+                                    <a href="#">Enroll This Course</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="course-des-tabs">
+                                    <div class="tab-btm">
+                                        <!-- Nav tabs -->
+                                        <div class="tabs-wrapper">
+                                            <ul class="nav classic-tabs tabs-cyan" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">Description</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link waves-light" data-toggle="tab" href="#curriculum" role="tab">Curriculum</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link waves-light" data-toggle="tab" href="#instructors" role="tab">Instructors</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link waves-light" data-toggle="tab" href="#review" role="tab">Review</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Tab panels -->
+                                    <div class="tab-content card">
+                                        <!--Panel 1-->
+                                        <div class="tab-pane fade in active show" id="panel51" role="tabpanel">
+                                          <h4 class="desc-title">Course Details</h4>
+                                            <p>Donec lorem leo, gravida ut cursus et, ultrices non tortor. Duis vel venenatis ligula. Etiam hendrerit at urna ac tempus. Integer sagittis luctus tellus, eu molestie magna volutpat quis. Praesent ullamcorper faucibus quam. Nam sed facilisis neque. Etiam dictum dolor et volutpat malesuada. Aliquam molestie felis in justo feugiat semper. In magna arcu, luctus a nisl et, mollis ultricies sem. Etiam cursus mi eget tellus ultrices fermentum. Vestibulum tempor erat ac eros egestas rutrum.</p>
 
-	<!-- start project-single-section -->
-	<section class="project-single-section section-padding">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-					<div class="content-area">
-						<h2>{{$product_detail->title}}</h2>
-						<div class="video-holder">
-							@php
-								$photos = explode(',',$product_detail->photo);
-							@endphp
-							<img src="{{$photos[0]}}" alt style="max-height: 600px; width: 100%; object-fit: cover;">
-						</div>
-						<div class="porject-info clearfix">
-							<div>
-								<span>Categorie</span>
-								<p>{{$product_detail->cat_info->title}}</p>
-							</div>
-							<div>
-								<span>Produit</span>
-								<p>{{$product_detail->title}}</p>
-							</div>
-						</div>
-						<p>
-							{!! $product_detail->description !!}
-						</p>
-						
-						<div class="img-area">
-							<h2>Galerie</h2>
-							<div class="my-gallery row" itemscope itemtype="http://schema.org/ImageGallery">
-								@foreach ($photos as $key => $photo)
-									<figure class="col-md-3" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" style="margin: 10px; padding: 0">
-										<a id="link-{{$key}}" class="figure-overlay" href="{{$photo}}" itemprop="contentUrl" data-size="1024x1024" style="height: 250px; width: 100%;">
-											<img id="img-{{$key}}" src="{{$photo}}" itemprop="thumbnail" alt style="height: 250px; width: 100%; object-fit: cover; width: 100%; padding: 0; margin: 0;"/>
-										</a>
-									</figure>
-								@endforeach
-							</div>
-
-							@foreach ($photos as $key => $photo)
-								<script>
-									newimage = new Image();
-									newimage.src = '{{$photo}}'; 
-									newimage.onload = function()
-									{
-										var width = this.naturalWidth;
-										var height = this.naturalHeight;
-										document.getElementById('link-{{$key}}').setAttribute('data-size', width+'x'+height);
-									}
-								</script>
-							@endforeach
-
-							<!-- Root element of PhotoSwipe. Must have class pswp. -->
-							<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-								<div class="pswp__bg"></div>
-								<div class="pswp__scroll-wrap">
-									<div class="pswp__container">
-										<div class="pswp__item"></div>
-										<div class="pswp__item"></div>
-										<div class="pswp__item"></div>
-									</div>
-
-									<div class="pswp__ui pswp__ui--hidden">
-										<div class="pswp__top-bar">
-											<div class="pswp__counter"></div>
-											<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-											<button class="pswp__button pswp__button--share" title="Share"></button>
-											<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-											<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-											<div class="pswp__preloader">
-												<div class="pswp__preloader__icn">
-												<div class="pswp__preloader__cut">
-													<div class="pswp__preloader__donut"></div>
-												</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-											<div class="pswp__share-tooltip"></div> 
-										</div>
-
-										<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-										<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-
-										<div class="pswp__caption">
-											<div class="pswp__caption__center"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							{{-- <img src="assets/images/service-single/img-2.jpg" alt="">
-							<img src="assets/images/service-single/img-3.jpg" alt=""> --}}
-						</div>
-						<script>
-							var initPhotoSwipeFromDOM = function(gallerySelector) {
-								var parseThumbnailElements = function(el) {
-									var thumbElements = el.childNodes,
-										numNodes = thumbElements.length,
-										items = [],
-										figureEl,
-										linkEl,
-										size,
-										item;
-
-									for(var i = 0; i < numNodes; i++) {
-
-										figureEl = thumbElements[i]; // <figure> element
-
-										// include only element nodes 
-										if(figureEl.nodeType !== 1) {
-											continue;
-										}
-
-										linkEl = figureEl.children[0]; // <a> element
-
-										size = linkEl.getAttribute('data-size').split('x');
-
-										// create slide object
-										item = {
-											src: linkEl.getAttribute('href'),
-											w: parseInt(size[0], 10),
-											h: parseInt(size[1], 10)
-										};
-
-
-
-										if(figureEl.children.length > 1) {
-											// <figcaption> content
-											item.title = figureEl.children[1].innerHTML; 
-										}
-
-										if(linkEl.children.length > 0) {
-											// <img> thumbnail element, retrieving thumbnail url
-											item.msrc = linkEl.children[0].getAttribute('src');
-										} 
-
-										item.el = figureEl; // save link to element for getThumbBoundsFn
-										items.push(item);
-									}
-
-									return items;
-								};
-
-								// find nearest parent element
-								var closest = function closest(el, fn) {
-									return el && ( fn(el) ? el : closest(el.parentNode, fn) );
-								};
-
-								// triggers when user clicks on thumbnail
-								var onThumbnailsClick = function(e) {
-									e = e || window.event;
-									e.preventDefault ? e.preventDefault() : e.returnValue = false;
-
-									var eTarget = e.target || e.srcElement;
-
-									// find root element of slide
-									var clickedListItem = closest(eTarget, function(el) {
-										return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
-									});
-
-									if(!clickedListItem) {
-										return;
-									}
-
-									// find index of clicked item by looping through all child nodes
-									// alternatively, you may define index via data- attribute
-									var clickedGallery = clickedListItem.parentNode,
-										childNodes = clickedListItem.parentNode.childNodes,
-										numChildNodes = childNodes.length,
-										nodeIndex = 0,
-										index;
-
-									for (var i = 0; i < numChildNodes; i++) {
-										if(childNodes[i].nodeType !== 1) { 
-											continue; 
-										}
-
-										if(childNodes[i] === clickedListItem) {
-											index = nodeIndex;
-											break;
-										}
-										nodeIndex++;
-									}
+                                            <p>Aliquam pulvinar blandit eros, vel tempor tellus eleifend eget. Vestibulum ultricies egestas ante, eu consectetur leo pretium vel. Aliquam mollis dolor libero, ac sagittis velit dignissim at. Nulla a tellus eu enim porta posuere. Sed posuere at lectus ac fringilla.</p>
+                                          <h4 class="desc-title">Requirements</h4>
+                                          <ul class="requirements-list">
+                                            <li>Lorem ipsum dolor sit elit</li>
+                                            <li>Sed posuere at lectus ac fringilla</li>
+                                            <li>Aliquam mollis dolor libero</li>
+                                            <li>Sagittis velit dignissim</li>
+                                            <li>Aliquam mollis dolor libero</li>
+                                            <li>Lorem ipsum dolor sit elit</li>
+                                            <li>consectetur adipisicing elit</li>
+                                            <li>Lorem consectetur adipisicing elit</li>
+                                            <li>pariatur. Tempora, placeat ratione</li>
+                                            <li>Lorem consectetur adipisicing elit</li>
+                                            <li>Nihil odit magnam minima</li>
+                                            <li>Lorem ipsum dolor sit elit</li>
+                                          </ul>
+                                      </div>
+                                      <!--/.Panel 1-->
+                                      <!--Panel 2-->
+                                      <div class="tab-pane fade" id="curriculum" role="tabpanel">
+                                            <div class="course-syllabus">
+                                                <h4 class="desc-title">SECTION 1 : INTRODUCTION</h4>
+                                                <div id="accordion" class="rs-accordion-style1">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                            <h3 class="acdn-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                <strong>Lessons  1: </strong>
+                                                                <span>Computer Science And Engineering</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingTwo">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            <strong>Lessons  2: </strong><span>Business Management</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header mb-0" id="headingThree">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                <strong>Lessons  3: </strong>
+                                                                <span>Civil Engineering</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
+                                                <h4 class="desc-title mt-30">SECTION 2 : COMPUTER SCIENCE AND ENGINEERING</h4>
+                                                <div id="accordiontTwo" class="rs-accordion-style1">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingFour">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                                                            <strong>Lessons  4: </strong><span>Business Management</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordiontTwo">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingFive">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
+                                                            <strong>Lessons  5: </strong><span>Business Management</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordiontTwo">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingSix">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                                                <strong>Lessons 6: </strong>
+                                                                <span>Civil Engineering</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordiontTwo">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingSeven">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+                                                                <strong>Lessons 7: </strong>
+                                                                <span>Diploma Electrical</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordiontTwo">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingEight">
+                                                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+                                                                <strong>Lessons 8: </strong>
+                                                                <span>Bachelor of Arts</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordiontTwo">
+                                                            <div class="card-body">
+                                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      </div>
+                                      <!--/.Panel 2-->
 
-									if(index >= 0) {
-										// open PhotoSwipe if valid index found
-										openPhotoSwipe( index, clickedGallery );
-									}
-									return false;
-								};
+                                      <!--Panel 3-->
+                                      <div class="tab-pane fade" id="instructors" role="tabpanel">
+                                          <div class="instructor-list">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/2.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <a href="#"><h4>John Doe</h4></a>
+                                                    <span>Professor</span>
+                                                    <div class="social-icon">
+                                                        <ul>
+                                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <p class="dsc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum
+                                                </p>
+                                          </div>
+                                          <div class="instructor-list pt-45">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/9.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <a href="#"><h4>Nuhan Freddy</h4></a>
+                                                    <span>Bachelor</span>
+                                                    <div class="social-icon">
+                                                        <ul>
+                                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <p class="dsc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum
+                                                </p>
+                                          </div>
+                                          <div class="instructor-list pt-45">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/6.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <a href="#"><h4>Naila Naime</h4></a>
+                                                    <span>Bachelor</span>
+                                                    <div class="social-icon">
+                                                        <ul>
+                                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <p class="dsc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum
+                                                </p>
+                                          </div>
+                                      </div>
+                                      <!--/.Panel 3-->
 
-								// parse picture index and gallery index from URL (#&pid=1&gid=2)
-								var photoswipeParseHash = function() {
-									var hash = window.location.hash.substring(1),
-									params = {};
-
-									if(hash.length < 5) {
-										return params;
-									}
-
-									var vars = hash.split('&');
-									for (var i = 0; i < vars.length; i++) {
-										if(!vars[i]) {
-											continue;
-										}
-										var pair = vars[i].split('=');  
-										if(pair.length < 2) {
-											continue;
-										}           
-										params[pair[0]] = pair[1];
-									}
-
-									if(params.gid) {
-										params.gid = parseInt(params.gid, 10);
-									}
-
-									return params;
-								};
-
-								var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
-									var pswpElement = document.querySelectorAll('.pswp')[0],
-										gallery,
-										options,
-										items;
-
-									items = parseThumbnailElements(galleryElement);
-
-									// define options (if needed)
-									options = {
-
-										// define gallery index (for URL)
-										galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-										getThumbBoundsFn: function(index) {
-											// See Options -> getThumbBoundsFn section of documentation for more info
-											var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-												pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-												rect = thumbnail.getBoundingClientRect(); 
-
-											return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-										}
-
-									};
-
-									// PhotoSwipe opened from URL
-									if(fromURL) {
-										if(options.galleryPIDs) {
-											// parse real index when custom PIDs are used 
-											// http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-											for(var j = 0; j < items.length; j++) {
-												if(items[j].pid == index) {
-													options.index = j;
-													break;
-												}
-											}
-										} else {
-											// in URL indexes start from 1
-											options.index = parseInt(index, 10) - 1;
-										}
-									} else {
-										options.index = parseInt(index, 10);
-									}
-
-									// exit if index not found
-									if( isNaN(options.index) ) {
-										return;
-									}
-
-									if(disableAnimation) {
-										options.showAnimationDuration = 0;
-									}
-
-									// Pass data to PhotoSwipe and initialize it
-									gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-									gallery.init();
-								};
-
-								// loop through all gallery elements and bind events
-								var galleryElements = document.querySelectorAll( gallerySelector );
-
-								for(var i = 0, l = galleryElements.length; i < l; i++) {
-									galleryElements[i].setAttribute('data-pswp-uid', i+1);
-									galleryElements[i].onclick = onThumbnailsClick;
-								}
-
-								// Parse URL and open gallery if it contains #&pid=3&gid=1
-								var hashData = photoswipeParseHash();
-								if(hashData.pid && hashData.gid) {
-									openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
-								}
-							};
-
-							// execute above function
-							initPhotoSwipeFromDOM('.my-gallery');
-						</script>
-					</div>
-				</div>
-			</div>
-		</div> <!-- end container -->
-	</section>
-	<!-- end project-single-section -->
+                                      <!--Panel 4-->
+                                      <div class="tab-pane fade" id="review" role="tabpanel">
+                                            <h4 class="desc-title">Reviews</h4>
+                                            <div class="instructor-list">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/8.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <div class="client-rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </div>
+                                                    <a href="#"><h4>Jesika Helan</h4></a>
+                                                    <span>Bachelor</span>
+                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="instructor-list mt-15">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/7.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <div class="client-rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </div>
+                                                    <a href="#"><h4>Alex Hilfisher</h4></a>
+                                                    <span>Bachelor</span>
+                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="instructor-list mt-15">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/4.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <div class="client-rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </div>
+                                                    <a href="#"><h4>Rhusda D’suza</h4></a>
+                                                    <span>Bachelor</span>
+                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="instructor-list mt-15">
+                                                <div class="image">
+                                                    <img src="{{url('frontend/images/teachers/7.jpg')}}" width="150"  alt="">
+                                                </div>
+                                                <div class="author-name">
+                                                    <div class="client-rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </div>
+                                                    <a href="#"><h4>Eyamin Hossen</h4></a>
+                                                    <span>Bachelor</span>
+                                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered altera tion in some form, by injected humour
+                                                    </p>
+                                                </div>
+                                            </div>
+                                      </div>
+                                      <!--/.Panel 4-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="sidebar-area">
+                            <div class="course-features-info">
+                                <h4 class="desc-title">Course Features</h4>
+                                <ul>
+                                    <li><i class="fa fa-files-o"></i> <span class="label">Lectures</span> <span class="value">9</span></li>
+                                    <li><i class="fa fa-clock-o"></i> <span class="label">Duration</span> <span class="value">1.5 hours</span></li>
+                                    <li><i class="fa fa-level-up"></i> <span class="label">Skill level</span> <span class="value">All level</span></li>
+                                    <li><i class="fa fa-language"></i> <span class="label">Language</span> <span class="value">English</span></li>
+                                    <li><i class="fa fa-users"></i> <span class="label">Students</span> <span class="value">560</span></li>
+                                    <li><i class="fa fa-check-square-o"></i> <span class="label">Assessments</span> <span class="value">Yes</span></li>
+                                </ul>
+                            </div>
+                            <div class="cate-box">
+                                <h3 class="title">Courses Categories</h3>
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Learning Centers<span>(05)</span></a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Video Reviews <span>(07)</span></a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Engineering Tech <span>(09)</span></a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#"> Righteous Indignation <span>(08)</span></a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">General Education <span>(04)</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="latest-courses">
+                                <h3 class="title">Latest Courses</h3>
+                                <div class="post-item">
+	                                <div class="post-img">
+	                                    <a href="courses-details.html"><img src="{{url('frontend/images/blog-details/sm1.jpg')}}" alt="" title="News image"></a>
+	                                </div>
+	                                <div class="post-desc">
+	                                    <h4><a href="courses-details.html">Raken develops reporting The software</a></h4>
+	                                    <span class="duration">
+	                                        <i class="fa fa-clock-o" aria-hidden="true"></i> 4 Years
+	                                    </span>
+	                                    <span class="price">Price: <span>$350</span></span>
+	                                </div>
+	                            </div>
+	                            <div class="post-item">
+	                                <div class="post-img">
+	                                    <a href="courses-details.html"><img src="{{url('frontend/images/blog-details/sm2.jpg')}}" alt="" title="News image"></a>
+	                                </div>
+	                                <div class="post-desc">
+	                                    <h4><a href="courses-details.html">Raken develops reporting The software</a></h4>
+	                                    <span class="duration">
+	                                        <i class="fa fa-clock-o" aria-hidden="true"></i> 4 Years
+	                                    </span>
+	                                    <span class="price">Price: <span>$350</span></span>
+	                                </div>
+	                            </div>
+	                            <div class="post-item">
+	                                <div class="post-img">
+	                                    <a href="courses-details.html"><img src="{{url('frontend/images/blog-details/sm3.jpg')}}" alt="" title="News image"></a>
+	                                </div>
+	                                <div class="post-desc">
+	                                    <h4><a href="courses-details.html">Raken develops reporting The software</a></h4>
+	                                    <span class="duration">
+	                                        <i class="fa fa-clock-o" aria-hidden="true"></i> 4 Years
+	                                    </span>
+	                                    <span class="price">Price: <span>$350</span></span>
+	                                </div>
+	                            </div>
+                            </div>
+                            <div class="tags-cloud clearfix">
+                                <h3 class="title">courses Tags</h3>
+                                <ul>
+                                    <li>
+                                        <a href="#">SCIENCE</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">HUMANITIES</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">DIPLOMA</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">BUSINESS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">SPROTS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">RESEARCH</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">ARTS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">ADMISSIONS</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pt-45">
+                <!-- Testimonial Start -->
+                <div class="related-courses rs-courses-3">
+                	<div class="sec-title-2 mb-50">
+                	    <h2>RELATED COURSES</h2>
+                		<p>Considering primary motivation for the generation of narratives is a useful concept</p>
+                	</div>
+                	<div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="1500" data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true" data-ipad-device="2" data-ipad-device-nav="true" data-md-device="3" data-md-device-nav="true">
+                        <div class="course-item">
+                            <div class="course-img">
+                                <img src="{{url('frontend/images/courses/10.jpg')}}" alt="" />
+                                <span class="course-value">$450</span>
+                                <div class="course-toolbar">
+                            		<h4 class="course-category"><a href="#">Science</a></h4>
+                                	<div class="course-date">
+                                		<i class="fa fa-calendar"></i> 28-06-2017
+                                	</div>
+                                	<div class="course-duration">
+                                		<i class="fa fa-clock-o"></i> 4 year
+                                	</div>
+                                </div>
+                            </div>
+                            <div class="course-body">
+                            	<div class="course-desc">
+                            		<h4 class="course-title"><a href="courses-details.html">Computer Engineering</a></h4>
+                            		<p>
+                            			Cras ultricies lacus consectetur, consectetur scelerisque arcu.Curabitur Aenean egestas a
+                            			Nullam augue augue.
+                            		</p>
+                            	</div>
+                            </div>
+                            <div class="course-footer">
+                            	<div class="course-seats">
+                            		<i class="fa fa-users"></i> 70 SEATS
+                            	</div>
+                            	<div class="course-button">
+                            		<a href="#">APPLY NOW</a>
+                            	</div>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-img">
+                                <img src="{{url('frontend/images/courses/11.jpg')}}" alt="" />
+                                <span class="course-value">$450</span>
+                                <div class="course-toolbar">
+                            		<h4 class="course-category"><a href="#">Business</a></h4>
+                                	<div class="course-date">
+                                		<i class="fa fa-calendar"></i> 28-06-2017
+                                	</div>
+                                	<div class="course-duration">
+                                		<i class="fa fa-clock-o"></i> 4 year
+                                	</div>
+                                </div>
+                            </div>
+                            <div class="course-body">
+                            	<div class="course-desc">
+                            		<h3 class="course-title"><a href="#">Business Management</a></h3>
+                            		<p>
+                            			Cras ultricies lacus consectetur, consectetur scelerisque arcu.Curabitur Aenean egestas a
+                            			Nullam augue augue.
+                            		</p>
+                            	</div>
+                            </div>
+                            <div class="course-footer">
+                            	<div class="course-seats">
+                            		<i class="fa fa-users"></i> 70 SEATS
+                            	</div>
+                            	<div class="course-button">
+                            		<a href="#">APPLY NOW</a>
+                            	</div>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-img">
+                                <img src="{{url('frontend/images/courses/13.jpg')}}" alt="" />
+                                <span class="course-value">$450</span>
+                                <div class="course-toolbar">
+                            		<h4 class="course-category"><a href="#">Diploma</a></h4>
+                                	<div class="course-date">
+                                		<i class="fa fa-calendar"></i> 28-06-2017
+                                	</div>
+                                	<div class="course-duration">
+                                		<i class="fa fa-clock-o"></i> 4 year
+                                	</div>
+                                </div>
+                            </div>
+                            <div class="course-body">
+                            	<div class="course-desc">
+                            		<h3 class="course-title"><a href="#">Diploma Electrical</a></h3>
+                            		<p>
+                            			Cras ultricies lacus consectetur, consectetur scelerisque arcu.Curabitur Aenean egestas a
+                            			Nullam augue augue.
+                            		</p>
+                            	</div>
+                            </div>
+                            <div class="course-footer">
+                            	<div class="course-seats">
+                            		<i class="fa fa-users"></i> 70 SEATS
+                            	</div>
+                            	<div class="course-button">
+                            		<a href="#">APPLY NOW</a>
+                            	</div>
+                            </div>
+                        </div>
+                	</div>
+                </div>
+            </div>
+        </div>
+        <!-- Courses Details End -->
 
 @endsection
+@push('styles')
+@endpush
+@push('scripts')
+
+@endpush

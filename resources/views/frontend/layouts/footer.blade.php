@@ -1,172 +1,267 @@
-@php
-    $settings=DB::table('settings')->get();
+
+ @php
+     $brands=App\Models\Brand::all();
+ @endphp
+ <div id="rs-partner" class="rs-partner pt-70 pb-70">
+    <div class="container">
+        <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="80" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false" data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
+            @foreach ($brands as $brand)
+            <div class="partner-item">
+                <a href="#"><img src="{{$brand->photo}}" alt="Partner Image"></a>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+ <!-- Footer Start -->
+ @php
+$settings=DB::table('settings')->get();
 @endphp
+@foreach($settings as $data)
+ <footer id="rs-footer" class="bg3 rs-footer rs-footer-style8">
+    <div class="container">
+        <!-- Footer Address -->
+        <div>
+            <div class="row footer-contact-desc">
+                <div class="col-md-4">
+                    <div class="contact-inner">
+                        <i class="glyph-icon flaticon-placeholder"></i>
+                        <h4 class="contact-title">Adresse</h4>
+                        <p class="contact-desc">
+                           {{$data->address}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-inner">
+                        <i class="glyph-icon flaticon-phone-call"></i>
+                        <h4 class="contact-title">Numéro de telephone</h4>
+                        <p class="contact-desc">
+                            {{$data->phone}}<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-inner">
+                        <i class="glyph-icon flaticon-email"></i>
+                        <h4 class="contact-title">Adresse Email</h4>
+                        <p class="contact-desc">
+                            {{$data->email}}<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- start site-footer -->
-<footer class="site-footer">		
-	@if (request()->segment(1) != 'contact')
-		<div class="upper-footer">
-			<div class="container">
-				<div class="row display-flex">
-					<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-2">
-						<div class="widget about-widget">
-							<div class="widget-title">
-								<a class="logo" href="{{route('home')}}" style="padding: 20px"><img alt src="@foreach($settings as $data) {{$data->logo}} @endforeach"></a>
-							</div>
-							<ul>
-								<li>
-									<div class="icon">
-										<i class="fa fa-phone"></i>
-										{{-- <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/call.svg')}}"> --}}
-									</div>
-									<div class="content">
-										<p>Appelez-nous:</p>
-										<span style="color: #fff; font-size: 13px">@foreach($settings as $data) {{$data->phone}} @endforeach</span>
-									</div>
-								</li>
-								<li>
-									<div class="icon">
-										<i class="fa fa-paper-plane"></i>
-										{{-- <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/envelope-open.svg')}}"> --}}
-									</div>
-									<div class="content">
-										<p>Email:</p>
-										<span style="color: #fff; font-size: 13px">@foreach($settings as $data) {{$data->email}} @endforeach</span>
-									</div>
-								</li>
-								<li>
-									<div class="icon">
-										<i class="fa fa-map-marker-alt"></i>
-										{{-- <img alt="" class="img-responsive" src="{{asset('frontend/assets/images/icon/gps.svg')}}"> --}}
-									</div>
-									<div class="content">
-										<p>Adresse:</p>
-										<span style="color: #fff; font-size: 13px">@foreach($settings as $data) {{$data->address}} @endforeach</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6 col-sm-12 col-xs-12 order-1">
-						<div class="contact-widget">
-							<div class="display-flex-title">
-								<div class="section-title text-center">
-									<span>Contactez-Nous</span>
-									<h2>Nous sommes toujours prêts à résoudre vos problèmes.</h2>
-								</div>
-							</div>
-							<form class="contact-validation-active" method="post" action="{{route('contact.store')}}">
-								@csrf
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-										<div class="form-group">
-											<input class="form-control" id="name" name="name" placeholder="Nom*" type="text">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-										<div class="form-group">
-											<input class="form-control" id="email" name="email" placeholder="Email*" type="email">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-										<div class="form-group">
-											<input class="form-control" id="phone" name="phone" placeholder="Téléphone*" type="text">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-										<div class="form-group">
-											<input class="form-control" id="subject" name="subject" placeholder="Objet*" type="text">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="form-group">
-											<div class="fullwidth">
-												<textarea class="form-control" id="note" name="message" placeholder="Message..."></textarea>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-6 col-lg-offset-3">
-										<div class="form-group">
-											<div class="submit-area">
-												<button class="submit-btn" type="submit">
-													Envoyer le message
-												</button>
-												<div id="loader">
-													<i class="ti-reload"></i>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="clearfix error-handling-messages">
-									<div id="success">Merci</div>
-									<div id="error">
-										Une erreur s'est produite lors de l'envoi d'email. Veuillez réessayer plus tard.
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6 col-sm-6 col-xs-12 order-3">
-						<div class="widget link-widget">
-							<div class="widget-title">
-								<h3>Beauty Design</h3>
-							</div>
-							<ul>
-								<li><a href="{{route('home')}}">Accueil</a></li>
-								<li><a href="{{route('about-us')}}">À Propos</a></li>
-								<li><a href="{{route('product-grids')}}">Produits</a></li>
-								<li><a href="{{route('blog')}}">Blog</a></li>
-								<li><a href="{{route('promotions')}}">Promotions</a></li>
-								<li><a href="{{route('contact')}}">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end container -->
-		</div>
-		
-	@endif
-		
-	<div class="lower-footer">
-		<div class="container">
-			<div class="row display-flex">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<p class="copyright"><a href="http://feen-tech.com" style="color: #fff">FeenTech</a> Corporation © 2020</p>
-				</div><!-- /col -->
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="@foreach($settings as $data) {{$data->facebook}} @endforeach"><i class="ti-facebook"></i></a></li>
-							<li><a href="@foreach($settings as $data) {{$data->linkedin}} @endforeach"><i class="ti-linkedin"></i></a></li>
-							<li><a href="@foreach($settings as $data) {{$data->instagram}} @endforeach"><i class="ti-instagram"></i></a></li>
-						</ul>
-					</div>
-				</div><!-- /col -->
-			</div>
-		</div>
-	</div>
+    <!-- Footer Top -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <div class="about-widget">
+                        <img src="{{$data->logo}}" style="height: 130px" alt="Footer Logo">
+                        <p>Institut de Soutien Coaching et Orientation / Privé "ISCOPSUP"</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <h5 class="footer-title">POSTES RÉCENTES</h5>
+                    <div class="recent-post-widget">
+                        @php
+                            $deuxpost=App\Models\Post::limit(2)->get();
+                        @endphp
+                        @foreach ($deuxpost as $item)
+                          <div class="post-item">
+                            <div class="post-date">
+                                <span>{{$item->created_at->format('d')}}</span>
+                                <span>{{$item->created_at->format('m/Y')}}</span>
+                            </div>
+                            <div class="post-desc">
+                                <h5 class="post-title"><a href="{{route('blog.detail',$item->slug)}}">{{$item->title}}</a></h5>
+                            </div>
+                        </div>
+                        @endforeach
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <h5 class="footer-title">OUR SITEMAP</h5>
+                    <ul class="sitemap-widget">
+                        <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Home</a></li>
+                        <li ><a href="about.html"><i class="fa fa-angle-right" aria-hidden="true"></i>About</a></li>
+                        <li><a href="courses.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Courses</a></li>
+                        <li><a href="courses-details.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Courses Details</a></li>
+                        <li><a href="events.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Events</a></li>
+                        <li><a href="events-details.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Events Details</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <h5 class="footer-title">NEWSLETTER</h5>
+                    <p>Sign Up to Our Newsletter to Get Latest Updates &amp; Services</p>
+                  <div class="form-inner">
+                        <input type="email" name="EMAIL" placeholder="Your email address" required="">
+                      <input type="submit" value="Sign up">
+                  </div>
+                </div>
+            </div>
+            <div class="footer-share">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="scrollUp">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="copyright">
+                <p><a href="feen-tech.com">FEENTECH</a> Corporation ©️ 2021</p>
+            </div>
+        </div>
+    </div>
 </footer>
-<!-- end site-footer -->
+@endforeach
+<!-- Footer End -->
 
-<!-- PhotoSwipe -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js" integrity="sha512-2R4VJGamBudpzC1NTaSkusXP7QkiUYvEKhpJAxeVCqLDsgW4OqtzorZGpulE3eEA7p++U0ZYmqBwO3m+R2hRjA==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js" integrity="sha512-SxO0cwfxj/QhgX1SgpmUr0U2l5304ezGVhc0AO2YwOQ/C8O67ynyTorMKGjVv1fJnPQgjdxRz6x70MY9r0sKtQ==" crossorigin="anonymous"></script>
+<!-- start scrollUp  -->
+<div id="scrollUp">
+    <i class="fa fa-angle-up"></i>
+</div>
 
-<!-- All JavaScript files
-================================================== -->
-<script src="{{asset('frontend/assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
+<!-- Canvas Menu start -->
+<nav class="right_menu_togle">
+    <div class="close-btn"><span id="nav-close" class="text-center">x</span></div>
+    <div class="canvas-logo">
+        <a href="index.html"><img src="images/logo-white.png" alt="logo"></a>
+    </div>
+    <ul class="sidebarnav_menu list-unstyled main-menu">
+        <!--Home Menu Start-->
+        <li class="current-menu-item menu-item-has-children"><a href="#">Home</a>
+            <ul class="list-unstyled">
+                <li class="sub-nav"><a href="index.html">Home One<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="index2.html">Home Two<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="index3.html">Home Three<span class="icon"></span></a></li>
+                <li class="sub-nav active" class="sub-nav"><a href="index4.html">Home Four<span class="icon"></span></a></li>
+            </ul>
+        </li>
+        <!--Home Menu End-->
 
-<!-- Plugins for this template -->
-<script src="{{asset('frontend/assets/js/jquery-plugin-collection.js')}}"></script>
+        <!--About Menu Start-->
+        <li class="menu-item-has-children"><a href="#">About Us</a>
+            <ul class="list-unstyled">
+                <li class="sub-nav active"><a href="index.html">About One<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="index2.html">About Two<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="index3.html">About Three<span class="icon"></span></a></li>
+            </ul>
+        </li>
+        <!--About Menu End-->
 
-<!-- Custom script for this template -->
-<script src="{{asset('frontend/assets/js/script.js')}}"></script>
+        <!--Pages Menu Start-->
+        <li class="menu-item-has-children"><a href="#">Pages</a>
+            <ul class="list-unstyled">
+                <li class="sub-nav active"><a href="teachers.html">Teachers<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="teachers-without-filter.html">Teachers Without Filter<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="teachers-single.html">Teachers Single<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="gallery.html">Gallery One<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="gallery2.html">Gallery Two<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="gallery3.html">Gallery Three<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="shop.html">Shop<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="shop-details.html">Shop Details<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="cart.html">Cart<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="shop.html">Shop<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="error-404.html">Error 404<span class="icon"></span></a></li>
+            </ul>
+        </li>
+        <!--Pages Menu End-->
+
+        <!--Courses Menu Star-->
+        <li class="menu-item-has-children"><a href="#">Courses</a>
+            <ul class="list-unstyled">
+                <li class="sub-nav"><a href="courses.html">Courses<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="courses2.html">Courses Two<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="courses-details.html">Courses Details<span class="icon"></span></a></li>
+            </ul>
+        </li>
+        <!--Courses Menu End-->
+
+        <!--Events Menu Star-->
+        <li class="menu-item-has-children"><a href="#">Events</a>
+            <ul class="list-unstyled">
+                <li class="sub-nav"><a href="events.html">Events<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="events-details.html">Events Details<span class="icon"></span></a></li>
+            </ul>
+        </li>
+        <!--Events Menu End-->
+
+        <!--blog Menu Star-->
+        <li class="menu-item-has-children"><a href="#">Blog</a>
+            <ul class="list-unstyled">
+                <li class="sub-nav"><a href="blog.html">Blog<span class="icon"></span></a></li>
+                <li class="sub-nav"><a href="blog-details.html">Blog Details<span class="icon"></span></a></li>
+            </ul>
+        </li>
+        <!--blog Menu End-->
+        <li><a href="contact.html">Contact<span class="icon"></span></a></li>
+    </ul>
+    <div class="search-wrap">
+        <label class="screen-reader-text">Search for:</label>
+        <input type="search" placeholder="Search..." name="s" class="search-input" value="">
+        <button type="submit" value="Search"><i class="fa fa-search"></i></button>
+    </div>
+</nav>
+<!-- Canvas Menu end -->
+
+<!-- Search Modal Start -->
+<div aria-hidden="true" class="modal fade search-modal" role="dialog" tabindex="-1">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true" class="fa fa-close"></span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="search-block clearfix">
+                <form>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="eg: Computer Technology" type="text">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Search Modal End -->
+
+
+<!-- modernizr js -->
+<script src="{{url('frontend/js/modernizr-2.8.3.min.js')}}"></script>
+<!-- bootstrap js -->
+<script src="{{url('frontend/js/bootstrap.min.js')}}"></script>
+<!-- owl.carousel js -->
+<script src="{{url('frontend/js/owl.carousel.min.js')}}"></script>
+<!-- slick.min js -->
+<script src="{{url('frontend/js/slick.min.js')}}"></script>
+<!-- isotope.pkgd.min js -->
+<script src="{{url('frontend/js/isotope.pkgd.min.js')}}"></script>
+<!-- imagesloaded.pkgd.min js -->
+<script src="{{url('frontend/js/imagesloaded.pkgd.min.js')}}"></script>
+<!-- wow js -->
+<script src="{{url('frontend/js/wow.min.js')}}"></script>
+<!-- counter top js -->
+<script src="{{url('frontend/js/waypoints.min.js')}}"></script>
+<script src="{{url('frontend/js/jquery.counterup.min.js')}}"></script>
+<!-- magnific popup -->
+<script src="{{url('frontend/js/jquery.magnific-popup.min.js')}}"></script>
+<!-- rsmenu js -->
+<script src="{{url('frontend/js/rsmenu-main.js')}}"></script>
+<!-- Time Circle js -->
+<script src="{{url('frontend/js/time-circle.js')}}"></script>
+<!-- plugins js -->
+<script src="{{url('frontend/js/plugins.js')}}"></script>
+ <!-- main js -->
+<script src="{{url('frontend/js/main.js')}}"></script>

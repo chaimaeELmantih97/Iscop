@@ -3,51 +3,58 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Ajouter une Categorie</h5>
+    <h5 class="card-header">Ajouter une formation</h5>
     <div class="card-body">
       <form method="post" action="{{route('category.store')}}">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
-          <input id="inputTitle" type="text" name="title" placeholder="Entrer le titre"  value="{{old('title')}}" class="form-control">
+          <label for="inputTitle" class="col-form-label">titre <span class="text-danger">*</span></label>
+          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
 
         <div class="form-group">
-          <label for="summary" class="col-form-label">Description</label>
+          <label for="summary" class="col-form-label">brève description</label>
           <textarea class="form-control" id="summary" name="summary">{{old('summary')}}</textarea>
           @error('summary')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+        <div class="form-group">
+            <label for="description" class="col-form-label">description</label>
+            <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+            @error('description')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
 
-        {{-- <div class="form-group">
-          <label for="is_parent">Is Parent</label><br>
-          <input type="checkbox" name='is_parent' id='is_parent' value='1' checked> Yes                        
-        </div> --}}
+        <div class="form-group">
+          <label for="is_parent">Est parent</label><br>
+          <input type="checkbox" name='is_parent' id='is_parent' value='1' checked> Oui
+        </div>
         {{-- {{$parent_cats}} --}}
 
-        {{-- <div class="form-group d-none" id='parent_cat_div'>
-          <label for="parent_id">Parent Category</label>
+        <div class="form-group d-none" id='parent_cat_div'>
+          <label for="parent_id">Formation mére</label>
           <select name="parent_id" class="form-control">
-              <option value="">--Select any category--</option>
+              <option value="">sélectionnez</option>
               @foreach($parent_cats as $key=>$parent_cat)
                   <option value='{{$parent_cat->id}}'>{{$parent_cat->title}}</option>
               @endforeach
           </select>
-        </div> --}}
+        </div>
 
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo</label>
           <div class="input-group">
               <span class="input-group-btn">
                   <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choisir
+                  <i class="fa fa-picture-o"></i> sélectionnez
                   </a>
               </span>
-          <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
+          <input id="thumbnail" class="form-control" required type="text" name="photo" value="{{old('photo')}}">
         </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
 
@@ -55,9 +62,9 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
-          <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
@@ -67,8 +74,8 @@
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Réinitialiser</button>
-           <button class="btn btn-success" type="submit">Valider</button>
+          <button type="reset" class="btn btn-warning">Reset</button>
+           <button class="btn btn-success" type="submit">Submit</button>
         </div>
       </form>
     </div>
@@ -85,12 +92,19 @@
 <script>
     $('#lfm').filemanager('image');
 
+     $(document).ready(function() {
+    $('#description').summernote({
+      placeholder: "Rédiger la description principale .....",
+        tabsize: 4,
+        height: 100
+    });
+    });
     $(document).ready(function() {
-      $('#summary').summernote({
-        placeholder: "Write short description.....",
-          tabsize: 2,
-          height: 120
-      });
+    $('#description').summernote({
+      placeholder: "Rédiger la description principale .....",
+        tabsize: 4,
+        height: 200
+    });
     });
 </script>
 

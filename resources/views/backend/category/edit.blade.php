@@ -2,52 +2,61 @@
 
 @section('main-content')
 
+
 <div class="card">
-    <h5 class="card-header">Modifier la Catégorie</h5>
+    <h5 class="card-header">Modifier une formation</h5>
     <div class="card-body">
       <form method="post" action="{{route('category.update',$category->id)}}">
-        @csrf 
+        @csrf
         @method('PATCH')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
-          <input id="inputTitle" type="text" name="title" placeholder="Entrer le titre"  value="{{$category->title}}" class="form-control">
+          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$category->title}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
 
         <div class="form-group">
-          <label for="summary" class="col-form-label">Description</label>
+          <label for="summary" class="col-form-label">brève description</label>
           <textarea class="form-control" id="summary" name="summary">{{$category->summary}}</textarea>
           @error('summary')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
 
-        {{-- <div class="form-group">
-          <label for="is_parent">Is Parent</label><br>
-          <input type="checkbox" name='is_parent' id='is_parent' value='{{$category->is_parent}}' {{(($category->is_parent==1)? 'checked' : '')}}> Yes                        
-        </div> --}}
+        <div class="form-group">
+            <label for="description" class="col-form-label">description</label>
+            <textarea class="form-control" id="description" name="description">{{$category->description}}</textarea>
+            @error('description')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
+
+        <div class="form-group">
+          <label for="is_parent">Est parent</label><br>
+          <input type="checkbox" name='is_parent' id='is_parent' value='{{$category->is_parent}}' {{(($category->is_parent==1)? 'checked' : '')}}> Yes
+        </div>
         {{-- {{$parent_cats}} --}}
         {{-- {{$category}} --}}
 
-        {{-- <div class="form-group {{(($category->is_parent==1) ? 'd-none' : '')}}" id='parent_cat_div'>
-          <label for="parent_id">Parent Category</label>
+      <div class="form-group {{(($category->is_parent==1) ? 'd-none' : '')}}" id='parent_cat_div'>
+          <label for="parent_id">Formation mére</label>
           <select name="parent_id" class="form-control">
-              <option value="">--Select any category--</option>
+              <option value="">--sélectionnez--</option>
               @foreach($parent_cats as $key=>$parent_cat)
-              
+
                   <option value='{{$parent_cat->id}}' {{(($parent_cat->id==$category->parent_id) ? 'selected' : '')}}>{{$parent_cat->title}}</option>
               @endforeach
           </select>
-        </div> --}}
+        </div>
 
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo</label>
           <div class="input-group">
               <span class="input-group-btn">
                   <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choisir
+                  <i class="fa fa-picture-o"></i> sélectionnez
                   </a>
               </span>
           <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$category->photo}}">
@@ -57,9 +66,9 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
-          <label for="status" class="col-form-label">Statut <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
               <option value="active" {{(($category->status=='active')? 'selected' : '')}}>Active</option>
               <option value="inactive" {{(($category->status=='inactive')? 'selected' : '')}}>Inactive</option>
@@ -69,7 +78,7 @@
           @enderror
         </div>
         <div class="form-group mb-3">
-           <button class="btn btn-success" type="submit">Mis à jour</button>
+           <button class="btn btn-success" type="submit">Modifier</button>
         </div>
       </form>
     </div>
@@ -88,9 +97,17 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
+      placeholder: "Rédiger une brève description.....",
+        tabsize: 4,
+        height: 100
+    });
+    });
+
+    $(document).ready(function() {
+    $('#description').summernote({
+      placeholder: "Rédiger la description principale .....",
+        tabsize: 4,
+        height: 200
     });
     });
 </script>

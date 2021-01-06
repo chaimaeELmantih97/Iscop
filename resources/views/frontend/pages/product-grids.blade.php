@@ -17,10 +17,10 @@
                 </div>
             </div> <!-- end row -->
         </div> <!-- end container -->
-    </section>        
+    </section>
 	<!-- end page-title -->
-    
-    
+
+
     <!-- start blog-pg-section -->
     <section class="blog-pg-section section-padding">
         <div class="container-fluid">
@@ -83,7 +83,7 @@
                                     @foreach ($menu as $key => $cat_info)
                                         <li>
                                             @if (Request::segment(1) == $cat_info->slug)
-                                                <a href="{{route('product-cat', $cat_info->slug)}}" style="color: #c87941">
+                                                <a href="{{route('product-cat', $cat_info->slug)}}" style="color: #0FA3E1">
                                                     {{$cat_info->title}}</span>
                                                 </a>
                                             @else
@@ -124,7 +124,7 @@
         </div> <!-- end container -->
     </section>
     <!-- end blog-pg-section -->
-    
+
 @endsection
 @push('styles')
 <style>
@@ -187,7 +187,7 @@
             if($("#price_range").length > 0 && $("#price_range").val()){
                 price_range = $("#price_range").val().trim();
             }
-            
+
             let price = price_range.split('-');
             $("#slider-range").slider({
                 range: true,
