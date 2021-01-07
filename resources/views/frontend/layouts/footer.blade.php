@@ -64,7 +64,7 @@ $settings=DB::table('settings')->get();
                 <div class="col-lg-3 col-md-12">
                     <div class="about-widget">
                         <img src="{{$data->logo}}" style="height: 130px" alt="Footer Logo">
-                        <p>Institut de Soutien Coaching et Orientation / Privé "ISCOPSUP" .</p>
+                        <p>Institut de Formation , de Soutien Coaching et Orientation / Privé "ISCOPSUP" .</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12">
