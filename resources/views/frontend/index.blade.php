@@ -5,7 +5,7 @@
 @php
     $banner=App\Models\Banner::first();
 @endphp
-<div class="rs-banner-section3" style="background: url('{{url($banner->photo)}}') ; background-position: center top;background-repeat: no-repeat;padding-top: 180px;padding-bottom: 100px;background-size: cover;">
+<div class="rs-banner-section3" style="background-image: url('{{url($banner->photo)}}') ; background-position: center top;background-repeat: no-repeat;padding-top: 180px;padding-bottom: 100px;background-size: cover;">
     <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7">
@@ -25,20 +25,32 @@
                        <h4 class="title">s'inscrire maintenant</h4>
                   </div>
                    <div class="form-group text-center">
-                       <form id="contact-form" class="contact-form" method="post" action="mailer.php">
+                       <form id="contact-form" class="contact-form" method="post" action="{{route('inscription')}}">
+                        @csrf
                            <div class="row">
                                <div class="col-lg-12">
-                                    <input class="from-control" name="name" type="text" placeholder="Name" id="name" required="required">
+                                    <input class="from-control" name="nom" type="text" placeholder="Nom Complet" id="name" required="required">
 
                                </div>
                                <div class="col-lg-12">
                                        <input class="from-control" name="email" type="email" placeholder="E-Mail" id="email" required="required">
                                </div>
                                <div class="col-lg-12">
-                                       <input class="from-control" name="number" type="text" placeholder="Phone Number" id="phone_number" required="required">
+                                       <input class="from-control" name="tel" type="text" placeholder="Numéro de telephone" id="phone_number" required="required">
                                </div>
                                <div class="col-lg-12">
-                                  <input type="submit" value="Get It Now" class="wpcf7-form-control wpcf7-submit">
+                                <select class="from-control" name="formation" reduired id="" class="nice-select">
+                                    <option value="" style="color: #A6AEBC;"> selectionner une formation</option>
+                                    @php
+                                        $frs=App\Models\Category::all();
+                                    @endphp
+                                    @foreach ($frs as $item)
+                                    <option value="{{$item->title}}" > {{$item->title}}</option>
+                                    @endforeach
+                                </select>
+                               </div>
+                               <div class="col-lg-12">
+                                  <input type="submit" value="s'Inscrire Maintenant" class="wpcf7-form-control wpcf7-submit">
                                </div>
                            </div>
                        </form>
@@ -265,30 +277,33 @@
                             <a class="image-link" href="{{route('product-detail',$formation->slug)}}" title="University Tour 2018">
                                 <i class="fa fa-link"></i>
                             </a>
-                            <span class="course-value">$450</span>
+                            <span class="course-value">
+                               <a href="https://api.whatsapp.com/send?phone=+212607158182"> <i class="fa fa-whatsapp" aria-hidden="true" style="color: white; font-size: 20px;"></i></a>
+                            </span>
                         </div>
                         <div class="course-body">
-                            <a href="#" class="course-category">Science</a>
-                            <h4 class="course-title"><a href="{{route('product-detail',$formation->slug)}}">Electrical Engineering</a></h4>
-                            <div class="course-desc">
+                            <h4 class="course-title"><a href="{{route('product-detail',$formation->slug)}}">{{$formation->title}}</a></h4>
+                            <div class="course-desc mt-2">
+                                @php
+                                   $shortdesc=substr($formation->summary,0,100);
+                                @endphp
                                 <p>
-                                    Cras ultricies lacus consectetur, consectetur
-                                    scelerisque arcu curabitur
+                                    {{$shortdesc}}
                                 </p>
                             </div>
                         </div>
                         <div class="course-footer">
-                            <div class="course-time">
-                                <span class="label">Course Time</span>
-                                <span class="desc">3 Year</span>
+                            <div class="course-time mr-3">
+                                <span class="label">Durée</span>
+                                <span class="desc">{{$formation->duree}}</span>
                             </div>
-                            <div class="course-student">
-                                <span class="label">Course Student</span>
-                                <span class="desc">95</span>
+                            <div class="course-student mr-3">
+                                <span class="label">Niveau</span>
+                                <span class="desc">{{$formation->niveau}}</span>
                             </div>
-                            <div class="class-duration">
-                                <span class="label">Class Duration</span>
-                                <span class="desc">8:30-4:00</span>
+                            <div class="class-duration mr-3">
+                                <span class="label">Langue</span>
+                                <span class="desc">{{$formation->langue}}</span>
                             </div>
                         </div>
                     </div>

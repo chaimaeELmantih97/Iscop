@@ -1,7 +1,10 @@
 
+ <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
  @php
      $brands=App\Models\Brand::all();
  @endphp
+
  <div id="rs-partner" class="rs-partner pt-70 pb-70">
     <div class="container">
         <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="80" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false" data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
@@ -61,7 +64,7 @@ $settings=DB::table('settings')->get();
                 <div class="col-lg-3 col-md-12">
                     <div class="about-widget">
                         <img src="{{$data->logo}}" style="height: 130px" alt="Footer Logo">
-                        <p>Institut de Soutien Coaching et Orientation / Privé "ISCOPSUP"</p>
+                        <p>Institut de Soutien Coaching et Orientation / Privé "ISCOPSUP" .</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12">
@@ -99,8 +102,11 @@ $settings=DB::table('settings')->get();
                     <h5 class="footer-title">NEWSLETTER</h5>
                     <p>Sign Up to Our Newsletter to Get Latest Updates &amp; Services</p>
                   <div class="form-inner">
-                        <input type="email" name="EMAIL" placeholder="Your email address" required="">
-                      <input type="submit" value="Sign up">
+                    <form action="{{route('subscribe')}}"  method="post" class="newsletter-inner" id="maform" >
+                        @csrf
+                        <input type="email" name="email" id="mc-email" placeholder="Votre adresse e-mail" required>
+                      <input type="submit" class="news-btn" id="mc-submit" value="Sign up">
+                    </form>
                   </div>
                 </div>
             </div>
@@ -114,9 +120,7 @@ $settings=DB::table('settings')->get();
             </div>
         </div>
     </div>
-    <div id="scrollUp">
-        <i class="fa fa-angle-up"></i>
-    </div>
+
     <!-- Footer Bottom -->
     <div class="footer-bottom">
         <div class="container">
@@ -128,11 +132,65 @@ $settings=DB::table('settings')->get();
 </footer>
 @endforeach
 <!-- Footer End -->
-
 <!-- start scrollUp  -->
 <div id="scrollUp">
     <i class="fa fa-angle-up"></i>
 </div>
+
+
+
+<script>
+    $('#maform').submit((e) => {
+        let that = e.currentTarget;
+        e.preventDefault();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            method: 'POST',
+            url: "{{route('subscribe')}}",
+            data: {email : $("#mc-email").val()}
+        })
+        .done((data) => {
+
+            $("#mc-email").val('')
+            swal("Thank You ", "You are subscribed!", "success");
+
+
+        })
+        .fail((data) => {
+            $("#mc-email").val('')
+            swal("Thank you !", "you are subscribed!", "success");
+            console.log("error");
+
+        });
+    });
+    $('#maform2').submit((e) => {
+        let that = e.currentTarget;
+        e.preventDefault();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            method: 'POST',
+            url: "{{route('subscribe')}}",
+            data: {email : $("#newsletter-term").val()}
+        })
+        .done((data) => {
+
+            $("#newsletter-term").val('')
+            swal("Merci ", "You are subscribed!", "success");
+
+
+        })
+        .fail((data) => {
+            $("#newsletter-term").val('')
+            swal("Merci !", "you are subscribed!", "success");
+            console.log("error");
+
+        });
+    });
+</script>
 
 <!-- Canvas Menu start -->
 <nav class="right_menu_togle">
@@ -217,6 +275,31 @@ $settings=DB::table('settings')->get();
 </nav>
 <!-- Canvas Menu end -->
 
+<style>
+    .select-style {
+        border-bottom: 1px solid #A6AEBC;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #0d0d0d url(img/icon-select.png) no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    color: #A6AEBC;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+</style>
+
 <!-- Search Modal Start -->
 <div aria-hidden="true" class="modal fade search-modal" role="dialog" tabindex="-1">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -225,9 +308,44 @@ $settings=DB::table('settings')->get();
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="search-block clearfix">
-                <form>
+                <form method="post" action="{{route('inscription')}}">
+                    @csrf
                     <div class="form-group">
-                        <input class="form-control" placeholder="eg: Computer Technology" type="text">
+                        <input class="form-control" name="nom" placeholder="Nom Complet" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="email" placeholder="Email" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="tel" placeholder="Numéro du telephone" type="text" required>
+                    </div>
+                    {{-- <div class="form-group">
+                        <select name="formation" reduired id="" class="nice-select">
+                            <option value="" style="color: #A6AEBC;"> selectionner une formation</option>
+                            @php
+                                $frs=App\Models\Category::all();
+                            @endphp
+                            @foreach ($frs as $item)
+                            <option value="{{$item->title}}" > {{$item->title}}</option>
+                            @endforeach
+                        </select>
+                    </div> --}}
+                    <div class="form-group">
+                        <div class="select-style">
+                            <select name="formation" reduired>
+                                <option value="" style="color: #A6AEBC;"> selectionner une formation</option>
+                                @php
+                                    $frs=App\Models\Category::all();
+                                @endphp
+                                @foreach ($frs as $item)
+                                <option value="{{$item->title}}" > {{$item->title}}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary mt-3 float-right" type="submit"> S'inscrire </button>
                     </div>
                 </form>
             </div>

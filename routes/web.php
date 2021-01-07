@@ -33,6 +33,7 @@ Route::get('/','FrontendController@home')->name('home');
 
 Route::get('/home', 'FrontendController@index');
 Route::get('/about-us','FrontendController@aboutUs')->name('about-us');
+Route::post('/inscription','FrontendController@inscription')->name('inscription');
 Route::get('/contact','FrontendController@contact')->name('contact');
 Route::get('/promotion','FrontendController@promotion')->name('promotions');
 Route::post('/contact/message','MessageController@store')->name('contact.store');

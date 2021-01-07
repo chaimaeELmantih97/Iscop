@@ -19,7 +19,7 @@
 
         <div class="form-group">
           <label for="summary" class="col-form-label">brève description</label>
-          <textarea class="form-control" id="summary" name="summary">{{$category->summary}}</textarea>
+          <textarea class="form-control" id="summary" name="summary"  placeholder="Rédiger la description principale .....">{{$category->summary}}</textarea>
           @error('summary')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -40,6 +40,7 @@
         {{-- {{$parent_cats}} --}}
         {{-- {{$category}} --}}
 
+
       <div class="form-group {{(($category->is_parent==1) ? 'd-none' : '')}}" id='parent_cat_div'>
           <label for="parent_id">Formation mére</label>
           <select name="parent_id" class="form-control">
@@ -50,7 +51,36 @@
               @endforeach
           </select>
         </div>
+        <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Durée <span class="text-danger">*</span></label>
+            <input id="inputTitle" type="text" name="duree" placeholder="Enter la Durée " value="{{$category->duree}}" class="form-control">
+            @error('title')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
 
+          <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Niveau <span class="text-danger">*</span></label>
+            <input id="inputTitle" type="text" name="niveau" placeholder="Enter le niveau " value="{{$category->niveau}}" class="form-control">
+            @error('niveau')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
+
+          <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Langue <span class="text-danger">*</span></label>
+            <input id="inputTitle" type="text" name="langue" placeholder="Enter la langue " value="{{$category->langue}}" class="form-control">
+            @error('langue')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Nombre de place <span class="text-danger">*</span></label>
+            <input id="inputTitle" type="text" name="place" placeholder="Enter la langue " value="{{$category->place}}" class="form-control">
+            @error('place')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Photo</label>
           <div class="input-group">
@@ -95,13 +125,13 @@
 <script>
     $('#lfm').filemanager('image');
 
-    $(document).ready(function() {
-    $('#summary').summernote({
-      placeholder: "Rédiger une brève description.....",
-        tabsize: 4,
-        height: 100
-    });
-    });
+    // $(document).ready(function() {
+    // $('#summary').summernote({
+    //   placeholder: "Rédiger une brève description.....",
+    //     tabsize: 4,
+    //     height: 100
+    // });
+    // });
 
     $(document).ready(function() {
     $('#description').summernote({

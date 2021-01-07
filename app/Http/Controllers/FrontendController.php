@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\SubscribeEmail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Category;
@@ -432,21 +434,37 @@ class FrontendController extends Controller
     }
 
     public function subscribe(Request $request){
-        if(! Newsletter::isSubscribed($request->email)){
-                Newsletter::subscribePending($request->email);
-                if(Newsletter::lastActionSucceeded()){
-                    request()->session()->flash('success','Subscribed! Please check your email');
-                    return redirect()->route('home');
-                }
-                else{
-                    Newsletter::getLastError();
-                    return back()->with('error','Something went wrong! please try again');
-                }
-            }
-            else{
-                request()->session()->flash('error','Already Subscribed');
-                return back();
-            }
+            // if(! Newsletter::isSubscribed($request->email)){
+            //         Newsletter::subscribePending($request->email);
+            //         if(Newsletter::lastActionSucceeded()){
+            //             request()->session()->flash('success','Subscribed! Please check your email');
+            //             return redirect()->route('home');
+            //         }
+            //         else{
+            //             Newsletter::getLastError();
+            //             return back()->with('error','Something went wrong! please try again');
+            //         }
+            //     }
+            //     else{
+            //         request()->session()->flash('error','Already Subscribed');
+            //         return back();
+            //     }
+
+            // Mail::to($request->email)->send(new SubscribeEmail());
+            return view('frontend.pages.SubscribeEmail');
+            return json_encode(['message' => $request->email]);
     }
+    public function inscription(Request $request){
+
+        DB::table('inscription')->insert([
+            'nom' => $request->nom,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'formation' => $request->formation
+        ]);
+        request()->session()->flash('success','votre inscription est terminée avec succès!');
+        return back();
+
+   }
 
 }
