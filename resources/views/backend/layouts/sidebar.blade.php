@@ -59,7 +59,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse"
             aria-expanded="true" aria-controls="categoryCollapse">
-            <i class="fas fa-sitemap"></i>
+            <i class="fa fa-graduation-cap"></i>
             <span>Les Formations</span>
         </a>
         <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -71,6 +71,19 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('inscription')}}" >
+            <i class="fas fa-book"></i>
+            <span>Les inscriptions</span>
+        </a>
+        {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Options du Bannière:</h6>
+                <a class="collapse-item" href="{{route('banner.index')}}">Bannières</a>
+                <a class="collapse-item" href="{{route('banner.create')}}">Ajouter une Bannière</a>
+            </div>
+        </div> --}}
+    </li>
     {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse"
             aria-expanded="true" aria-controls="productCollapse">
@@ -101,7 +114,7 @@
         </div>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#catalogCollapse" aria-expanded="true"
             aria-controls="catalogCollapse">
             <i class="fas fa-table"></i>
@@ -114,7 +127,7 @@
                 <a class="collapse-item" href="{{route('catalog.create')}}">Ajouter un Catalogue</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonialCollapse" aria-expanded="true"
@@ -131,7 +144,7 @@
         </div>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#promotionCollapse"
             aria-expanded="true" aria-controls="promotionCollapse">
             <i class="fas fa-table"></i>
@@ -144,7 +157,7 @@
                 <a class="collapse-item" href="{{route('promotion.create')}}">Ajouter une Promotion</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true"
@@ -161,11 +174,11 @@
         </div>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{route('about.edit')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>À Propos</span></a>
-    </li>
+    </li> --}}
 
     {{--
     <li class="nav-item">

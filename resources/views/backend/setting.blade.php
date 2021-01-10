@@ -6,7 +6,7 @@
     <h5 class="card-header">Edit Post</h5>
     <div class="card-body">
     <form method="post" action="{{route('settings.update')}}">
-        @csrf 
+        @csrf
         {{-- @method('PATCH') --}}
         {{-- {{dd($data)}} --}}
         {{-- <div class="form-group">
@@ -79,7 +79,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="phone" class="col-form-label">Facebook <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="facebook" required value="{{$data->facebook}}">
@@ -87,7 +87,14 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+        <div class="form-group">
+            <label for="phone" class="col-form-label">Facebook 2 <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="	facebook2" required value="{{$data->facebook2}}">
+            @error('phone2')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
+
         <div class="form-group">
           <label for="phone" class="col-form-label">Instagram <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="instagram" required value="{{$data->instagram}}">
@@ -95,7 +102,14 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+        <div class="form-group">
+            <label for="phone" class="col-form-label">Instagram 2 <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="instagram2" required value="{{$data->instagram2}}">
+            @error('phone2')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
+
         <div class="form-group">
           <label for="phone" class="col-form-label">Linked In <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="linkedin" required value="{{$data->linkedin}}">

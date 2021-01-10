@@ -26,6 +26,7 @@
         </div>
     </div>
 </div>
+
 <!-- Breadcrumbs End -->
 
 <!-- Courses Details Start -->
@@ -36,7 +37,7 @@
                 <div class="detail-img" style="width: 100%">
                     <img src="{{$formation->photo}}" style="width: 100%;" alt="Courses Images" />
                     <div class="course-seats price">
-                        <a href="https://api.whatsapp.com/send?phone=+212607158182"><i class="fa fa-whatsapp"
+                        <a href="https://api.whatsapp.com/send?phone={{$formation->whatsapp}}"><i class="fa fa-whatsapp"
                                 aria-hidden="true" style="color: white; font-size: 40px;margin-top: 20px;"></i></a>
                     </div>
                     {{-- <div class="course-seats">
@@ -138,7 +139,7 @@
                 <div class="course-item">
                     <div class="course-img">
                         <img src="{{$fr->photo}}" alt="" />
-                        <span class="course-value"><a href="https://api.whatsapp.com/send?phone=+212607158182"> <i class="fa fa-whatsapp" aria-hidden="true" style="color: white; font-size: 20px;"></i></a>
+                        <span class="course-value"><a href="https://api.whatsapp.com/send?phone={{$formation->whatsapp}}"> <i class="fa fa-whatsapp" aria-hidden="true" style="color: white; font-size: 20px;"></i></a>
                         </span>
                         <div class="course-toolbar">
                             <h4 class="course-category"></h4>

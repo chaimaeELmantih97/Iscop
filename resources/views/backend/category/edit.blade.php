@@ -51,6 +51,20 @@
               @endforeach
           </select>
         </div>
+
+        <div class="form-group">
+            <label for="inputTitle" class="col-form-label">Numéro telephone/whatsapp <span class="text-danger">*</span></label>
+            <select name="whatsapp" id="" required class="form-control">
+                <option value=""> selectionner le numéro</option>
+                <option @if($category->whatsapp=='+212607158182') selected @endif value="+212607158182">+212607158182</option>
+                <option @if($category->whatsapp=='+212661350450') selected @endif value="+212661350450">+212661350450</option>
+                <option @if($category->whatsapp=='+212701047620') selected @endif value="+212701047620">+212701047620</option>
+            </select>
+            @error('whatsapp')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+          </div>
+
         <div class="form-group">
             <label for="inputTitle" class="col-form-label">Durée <span class="text-danger">*</span></label>
             <input id="inputTitle" type="text" name="duree" placeholder="Enter la Durée " value="{{$category->duree}}" class="form-control">

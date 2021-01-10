@@ -33,7 +33,7 @@ Route::get('/','FrontendController@home')->name('home');
 
 Route::get('/home', 'FrontendController@index');
 Route::get('/about-us','FrontendController@aboutUs')->name('about-us');
-Route::post('/inscription','FrontendController@inscription')->name('inscription');
+Route::post('/inscription','FrontendController@inscription')->name('inscriptionPOST');
 Route::get('/contact','FrontendController@contact')->name('contact');
 Route::get('/promotion','FrontendController@promotion')->name('promotions');
 Route::post('/contact/message','MessageController@store')->name('contact.store');
@@ -113,6 +113,9 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');
     // Category
     Route::resource('/category','CategoryController');
+    Route::get('/inscription','CategoryController@inscription')->name('inscription');
+    Route::post('/inscription/delete','CategoryController@supprimerInscription')->name('inscription.supp');
+
     // Product
     Route::resource('/product','ProductController');
     // Services
@@ -197,4 +200,38 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+Route::get('services/soutienUniversitaire', function () {
+    return view('frontend.pages.services.soutienUniversitaire');
+});
+Route::get('services/SoutienScolaire', function () {
+    return view('frontend.pages.services.SoutienScolaire');
+});
+Route::get('services/LanguesCommunication', function () {
+    return view('frontend.pages.services.LanguesCommunication');
+});
+
+Route::get('services/CoachingPédagogique', function () {
+    return view('frontend.pages.services.CoachingPédagogique');
+});
+Route::get('services/CoachingProfessionnel', function () {
+    return view('frontend.pages.services.CoachingProfessionnel');
+});
+Route::get('services/CoachingFamiliale', function () {
+    return view('frontend.pages.services.CoachingFamiliale');
+});
+
+Route::get('services/OrientationPédagogique', function () {
+    return view('frontend.pages.services.OrientationPédagogique');
+});
+Route::get('services/OrientationProfessionnel', function () {
+    return view('frontend.pages.services.orientationProfessionnelle');
+});
+
+Route::get('services/GrandesEcoles', function () {
+    return view('frontend.pages.services.Grandesecoles');
+});
+Route::get('services/FontionPriveePublique', function () {
+    return view('frontend.pages.services.PubliquePrivée');
 });

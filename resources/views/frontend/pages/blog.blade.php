@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','Beauty Design - Blog')
+@section('title','ISCOP - Blog')
 
 @section('main-content')
 

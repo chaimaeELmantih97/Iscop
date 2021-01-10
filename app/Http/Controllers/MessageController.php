@@ -40,14 +40,15 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'string|required|min:2',
-            'email'=>'email|required',
-            'message'=>'required|max:200',
-            'subject'=>'string|required',
-            'phone'=>'string|required'
-        ]);
         // return $request->all();
+        // $this->validate($request,[
+        //     'name'=>'string|required|min:2',
+        //     'email'=>'email|required',
+        //     'message'=>'required|max:200',
+        //     'subject'=>'string|required',
+        //     'phone'=>'string|required'
+        // ]);
+
 
         $message=Message::create($request->all());
             // return $message;
@@ -60,9 +61,9 @@ class MessageController extends Controller
         $data['message']=$message->message;
         $data['subject']=$message->subject;
         $data['photo']='';
-        // return $data;    
+        // return $data;
         event(new MessageSent($data));
-        
+
         if($message){
             request()->session()->flash('success','Message envoyé avec succès');
         }

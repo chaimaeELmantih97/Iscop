@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Beauty Design - Liste des services')
+@section('title','ISCOP SUP - Liste des services')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -22,6 +22,7 @@
               <th>Titre</th>
               <th>Tag</th>
               <th>Description</th>
+              <th>Photo</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -31,45 +32,33 @@
               <th>Titre</th>
               <th>Tag</th>
               <th>Description</th>
+              <th>Photo</th>
               <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
-            @foreach($services as $service)   
+            @foreach($services as $service)
                 <tr>
                     <td>{{$service->id}}</td>
                     <td>{{$service->title}}</td>
                     <td>{{$service->tag}}</td>
                     <td>{{$service->description}}</td>
                     <td>
+                        @if($service->photo)
+                        <img src="{{$service->photo}}" width="170" >
+                        @else
+                            <img src="{{asset('backend/img/thumbnail-default.jpg')}}" width="170">
+                        @endif
+                    </td>
+                    <td>
                         <a href="{{route('service.edit',$service->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('service.destroy',[$service->id])}}">
-                          @csrf 
+                          @csrf
                           @method('delete')
                               <button class="btn btn-danger btn-sm dltBtn" data-id={{$service->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
-                    {{-- Delete Modal --}}
-                    {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form method="post" action="{{ route('banners.destroy',$user->id) }}">
-                                @csrf 
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                    </div> --}}
-                </tr>  
+                </tr>
             @endforeach
           </tbody>
         </table>
@@ -109,7 +98,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
-      
+
       $('#banner-dataTable').DataTable( {
             "columnDefs":[
                 {
@@ -122,7 +111,7 @@
         // Sweet alert
 
         function deleteData(id){
-            
+
         }
   </script>
   <script>

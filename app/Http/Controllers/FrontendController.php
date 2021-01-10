@@ -23,6 +23,7 @@ use Newsletter;
 use DB;
 use Hash;
 use Illuminate\Support\Str;
+use App\Mail\NotificationEmail;
 use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
@@ -450,8 +451,8 @@ class FrontendController extends Controller
             //         return back();
             //     }
 
-            // Mail::to($request->email)->send(new SubscribeEmail());
-            return view('frontend.pages.SubscribeEmail');
+            Mail::to($request->email)->send(new SubscribeEmail());
+            // return view('frontend.pages.SubscribeEmail');
             return json_encode(['message' => $request->email]);
     }
     public function inscription(Request $request){
@@ -462,6 +463,7 @@ class FrontendController extends Controller
             'tel' => $request->tel,
             'formation' => $request->formation
         ]);
+        Mail::to('celmantih8@gmail.com')->send(new NotificationEmail($request->nom,$request->email,$request->tel,$request->formation));
         request()->session()->flash('success','votre inscription est terminée avec succès!');
         return back();
 

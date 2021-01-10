@@ -1,12 +1,12 @@
 @extends('backend.layouts.master')
-@section('title','Beauty Design - Modifier le Service')
+@section('title','ISCOP SUP - Modifier le Service')
 @section('main-content')
 
 <div class="card">
     <h5 class="card-header">Modifier le Service</h5>
     <div class="card-body">
       <form method="post" action="{{route('service.update',$service->id)}}">
-        @csrf 
+        @csrf
         @method('PATCH')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
@@ -16,7 +16,7 @@
         @enderror
         </div>
 
-        
+
 
         <div class="form-group">
           <label for="inputTag" class="col-form-label">Tag <span class="text-danger">*</span></label>
@@ -33,6 +33,22 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+
+        <div class="form-group">
+            <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                    <i class="fa fa-picture-o"></i> Choisir
+                    </a>
+                </span>
+              <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$service->photo}}">
+            </div>
+            <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+              @error('photo')
+              <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
 
         <div class="form-group mb-3">
            <button class="btn btn-success" type="submit">Mis à jour</button>

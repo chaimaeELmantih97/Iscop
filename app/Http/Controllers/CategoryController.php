@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -20,6 +21,18 @@ class CategoryController extends Controller
         return view('backend.category.index')->with('categories',$category);
     }
 
+    public function inscription(){
+        $frs=DB::table('inscription')->get();
+        return view('backend.inscription.inscription')->with('inscriptions',$frs);
+    }
+
+    public function supprimerInscription(Request $request){
+        // dd($request->all());
+        DB::table('inscription')->where('id', $request->id)->delete();
+        request()->session()->flash('success','Inscription supprimé avec succés');
+        return redirect()->route('inscription');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,6 +41,7 @@ class CategoryController extends Controller
     public function create()
     {
         $parent_cats=Category::where('is_parent',1)->orderBy('title','ASC')->get();
+        request()->session()->flash('success','Formation ajouté avec succés');
         return view('backend.category.create')->with('parent_cats',$parent_cats);
     }
 
@@ -60,7 +74,7 @@ class CategoryController extends Controller
         // return $data;
         $status=Category::create($data);
         if($status){
-            request()->session()->flash('success','Category successfully added');
+            request()->session()->flash('success','Formation ajouté avec succés');
         }
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
@@ -92,6 +106,7 @@ class CategoryController extends Controller
         $parent_cats=Category::where('is_parent',1)->get();
         $category=Category::findOrFail($id);
         return view('backend.category.edit')->with('category',$category)->with('parent_cats',$parent_cats);
+
     }
 
     /**
@@ -117,7 +132,7 @@ class CategoryController extends Controller
         // return $data;
         $status=$category->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Category successfully updated');
+            request()->session()->flash('success','Formation modifié avec succes');
         }
         else{
             request()->session()->flash('error','Error occurred, Please try again!');
@@ -142,7 +157,7 @@ class CategoryController extends Controller
             if(count($child_cat_id)>0){
                 Category::shiftChild($child_cat_id);
             }
-            request()->session()->flash('success','Category successfully deleted');
+            request()->session()->flash('success','Formation supprimé avec succes');
         }
         else{
             request()->session()->flash('error','Error while deleting category');

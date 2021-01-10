@@ -9,13 +9,13 @@
 <div class="page-wrapper">
 
     <!-- start preloader -->
-	{{-- <div class="book_preload">
+	<div class="book_preload">
         <div class="book">
             <div class="book__page"></div>
             <div class="book__page"></div>
             <div class="book__page"></div>
         </div>
-    </div> --}}
+    </div>
     <!-- end preloader -->
 
 	@include('frontend.layouts.notification')

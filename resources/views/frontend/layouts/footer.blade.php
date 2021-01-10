@@ -90,17 +90,14 @@ $settings=DB::table('settings')->get();
                 <div class="col-lg-3 col-md-12">
                     <h5 class="footer-title">OUR SITEMAP</h5>
                     <ul class="sitemap-widget">
-                        <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Home</a></li>
-                        <li ><a href="about.html"><i class="fa fa-angle-right" aria-hidden="true"></i>About</a></li>
-                        <li><a href="courses.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Courses</a></li>
-                        <li><a href="courses-details.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Courses Details</a></li>
-                        <li><a href="events.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Events</a></li>
-                        <li><a href="events-details.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Events Details</a></li>
+                        <li class="active"><a href="{{route('home')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>Acceuil</a></li>
+                        <li ><a href="{{route('contact')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
+                        <li><a href="{{route('blog')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>Blogs</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-12">
                     <h5 class="footer-title">NEWSLETTER</h5>
-                    <p>Sign Up to Our Newsletter to Get Latest Updates &amp; Services</p>
+                    <p>Inscrivez-vous à notre bulletin d'information pour recevoir les dernières mises à jour et les derniers services.</p>
                   <div class="form-inner">
                     <form action="{{route('subscribe')}}"  method="post" class="newsletter-inner" id="maform" >
                         @csrf
@@ -112,10 +109,10 @@ $settings=DB::table('settings')->get();
             </div>
             <div class="footer-share">
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                    <li><a target="_blank" href="https://api.whatsapp.com/send?phone=++212607158182"><i class="fa fa-whatsapp"></i></a></li>
+                    <li><a target="_blank" href="{{$data->facebook}}"><i class="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" href="{{$data->instagram}}"><i class="fa fa-instagram"></i></a></li>
+                    <li><a target="_blank" href="{{$data->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -308,7 +305,7 @@ $settings=DB::table('settings')->get();
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="search-block clearfix">
-                <form method="post" action="{{route('inscription')}}">
+                <form method="post" action="{{route('inscriptionPOST')}}">
                     @csrf
                     <div class="form-group">
                         <input class="form-control" name="nom" placeholder="Nom Complet" type="text" required>

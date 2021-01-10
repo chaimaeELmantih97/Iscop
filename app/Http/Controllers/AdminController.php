@@ -64,6 +64,8 @@ class AdminController extends Controller
             'phone'=>'required|string',
             'facebook'=>'string',
             'instagram'=>'string',
+            'facebook2'=>'string',
+            'instagram2'=>'string',
             'linkedin'=>'string',
         ]);
         $data=$request->all();
@@ -90,9 +92,9 @@ class AdminController extends Controller
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
+
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
+
         return redirect()->route('admin')->with('success','Password successfully changed');
     }
 
