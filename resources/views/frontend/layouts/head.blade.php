@@ -5,7 +5,8 @@
 
         <!-- meta tag -->
         <meta charset="utf-8">
-        <title>ISCOP</title>
+        <title>ISCOP SUP</title>
+        <meta name="author" content="EL MANTIH Chaimae">
         <meta name="description" content="">
         <!-- responsive tag -->
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -47,9 +48,11 @@
         <link rel="stylesheet" type="text/css" href="{{url('frontend/css/spacing.css')}}">
         <!-- responsive css -->
         <link rel="stylesheet" type="text/css" href="{{url('frontend/css/responsive.css')}}">
-
+        {{-- moddal.css --}}
+        <link rel="stylesheet" type="text/css" href="{{url('modal/modal.css')}}">
         <!-- jquery latest version -->
         <script src="{{url('frontend/js/jquery.min.js')}}"></script>
+
 
         <style>
             /* width */
@@ -72,4 +75,5 @@
             ::-webkit-scrollbar-thumb:hover {
             background: #1474A6;
             }
+            
         </style>

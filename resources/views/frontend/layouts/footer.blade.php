@@ -88,11 +88,13 @@ $settings=DB::table('settings')->get();
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12">
-                    <h5 class="footer-title">OUR SITEMAP</h5>
+                    <h5 class="footer-title">Liens Utiles</h5>
                     <ul class="sitemap-widget">
                         <li class="active"><a href="{{route('home')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>Acceuil</a></li>
+                        <li class="active"><a href="{{route('about-us')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>À PROPOS</a></li>
                         <li ><a href="{{route('contact')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
                         <li><a href="{{route('blog')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>Blogs</a></li>
+                        <li> <a href="{{route('blog')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>NOTRE GALERIE</a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-12">
@@ -110,9 +112,21 @@ $settings=DB::table('settings')->get();
             <div class="footer-share">
                 <ul>
                     <li><a target="_blank" href="https://api.whatsapp.com/send?phone=++212607158182"><i class="fa fa-whatsapp"></i></a></li>
+                    @if ($data->facebook)
                     <li><a target="_blank" href="{{$data->facebook}}"><i class="fa fa-facebook"></i></a></li>
+                    @endif
+                    @if ($data->instagram)
                     <li><a target="_blank" href="{{$data->instagram}}"><i class="fa fa-instagram"></i></a></li>
+                    @endif
+                    @if ($data->facebook2)
+                    <li><a target="_blank" href="{{$data->facebook2}}"><i class="fa fa-facebook"></i></a></li>
+                    @endif
+                    @if ($data->instagram2)
+                    <li><a target="_blank" href="{{$data->instagram2}}"><i class="fa fa-instagram"></i></a></li>
+                    @endif
+                    @if ($data->linkedin)
                     <li><a target="_blank" href="{{$data->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -122,7 +136,7 @@ $settings=DB::table('settings')->get();
     <div class="footer-bottom">
         <div class="container">
             <div class="copyright">
-                <p><a href="feen-tech.com">FEENTECH</a> Corporation ©️ 2021</p>
+                <p><a href="https://feen-tech.com">FEENTECH</a> Corporation ©️ 2021</p>
             </div>
         </div>
     </div>
@@ -130,11 +144,42 @@ $settings=DB::table('settings')->get();
 @endforeach
 <!-- Footer End -->
 <!-- start scrollUp  -->
-<div id="scrollUp">
+{{-- <div id="scrollUp">
     <i class="fa fa-angle-up"></i>
-</div>
-
-
+</div> --}}
+<style>
+    #scroll {
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    background-color:#3498db;
+    text-indent:-9999px;
+    display:none;
+    -webkit-border-radius:60px;
+    -moz-border-radius:60px;
+    border-radius:60px
+}
+#scroll span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-12px;
+    height:0;
+    width:0;
+    border:8px solid transparent;
+    border-bottom-color:#ffffff;
+}
+#scroll:hover {
+    background-color:#5a0ceb;
+    opacity:1;filter:"alpha(opacity=100)";
+    -ms-filter:"alpha(opacity=100)";
+}
+</style>
+<a href="#" id="scroll" style="display: none;"><span></span></a>
 
 <script>
     $('#maform').submit((e) => {
@@ -151,15 +196,13 @@ $settings=DB::table('settings')->get();
         .done((data) => {
 
             $("#mc-email").val('')
-            swal("Thank You ", "You are subscribed!", "success");
-
+            swal("Thank You ", "Vous êtes inscrit!", "success");
 
         })
         .fail((data) => {
             $("#mc-email").val('')
-            swal("Thank you !", "you are subscribed!", "success");
+            swal("Thank you !", "Vous êtes inscrit!", "success");
             console.log("error");
-
         });
     });
     $('#maform2').submit((e) => {
@@ -176,13 +219,13 @@ $settings=DB::table('settings')->get();
         .done((data) => {
 
             $("#newsletter-term").val('')
-            swal("Merci ", "You are subscribed!", "success");
+            swal("Merci ", "Vous êtes inscrit!", "success");
 
 
         })
         .fail((data) => {
             $("#newsletter-term").val('')
-            swal("Merci !", "you are subscribed!", "success");
+            swal("Merci !", "Vous êtes inscrit!", "success");
             console.log("error");
 
         });
@@ -380,3 +423,24 @@ $settings=DB::table('settings')->get();
 <script src="{{url('frontend/js/plugins.js')}}"></script>
  <!-- main js -->
 <script src="{{url('frontend/js/main.js')}}"></script>
+{{-- modal.js --}}
+<script src="{{url('modal/modal.js')}}"></script>
+<script>
+    // openGenModal('1');
+    $('#myModal').modal('show'); 
+</script>
+<script>
+    $(document).ready(function(){ 
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 100) { 
+            $('#scroll').fadeIn(); 
+        } else { 
+            $('#scroll').fadeOut(); 
+        } 
+    }); 
+    $('#scroll').click(function(){ 
+        $("html, body").animate({ scrollTop: 0 }, 600); 
+        return false; 
+    }); 
+});
+</script>

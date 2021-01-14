@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title','Beauty Design - Ajouter une Bannière')
+@section('title','ISCOP SUP - Ajouter une Bannière')
 
 @section('main-content')
 

@@ -89,7 +89,7 @@
         </div>
         <div class="form-group">
             <label for="phone" class="col-form-label">Facebook 2 <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="	facebook2" required value="{{$data->facebook2}}">
+            <input type="text" class="form-control" name="facebook2"  value="{{$data->facebook2}}">
             @error('phone2')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -104,7 +104,7 @@
         </div>
         <div class="form-group">
             <label for="phone" class="col-form-label">Instagram 2 <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="instagram2" required value="{{$data->instagram2}}">
+            <input type="text" class="form-control" name="instagram2"  value="{{$data->instagram2}}">
             @error('phone2')
             <span class="text-danger">{{$message}}</span>
             @enderror

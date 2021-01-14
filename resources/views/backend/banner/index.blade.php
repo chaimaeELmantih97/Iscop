@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Beauty Design - Page de Bannières')
+@section('title','ISCOP SUP - Page de Bannières')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -20,7 +20,7 @@
             <tr>
               <th>Numéro</th>
               <th>Titre</th>
-              <th>Slug</th>
+              <th>description</th>
               <th>Photo</th>
               <th>Statut</th>
               <th>Action</th>
@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{$banner->id}}</td>
                     <td>{{$banner->title}}</td>
-                    <td>{{$banner->slug}}</td>
+                    <td>{{$banner->description}}</td>
                     <td>
                         @if($banner->photo)
                             <img src="{{$banner->photo}}" class="img-fluid zoom" style="max-width:80px" alt="{{$banner->photo}}">

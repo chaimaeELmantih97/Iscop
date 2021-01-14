@@ -1,5 +1,5 @@
 @extends('user.layouts.master')
-@section('title','Beauty Design - Comment Page')
+@section('title','ISCOP SUP - Comment Page')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">

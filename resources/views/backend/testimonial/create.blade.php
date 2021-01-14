@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Beauty Design - Ajouter un Service')
+@section('title','ISCOP SUP - Ajouter un Service')
 @section('main-content')
 
 <div class="card">

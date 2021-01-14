@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','Beauty Design - Liste des Produits')
+@section('title','ISCOP SUP - Liste des Produits')
 
 @section('main-content')
 

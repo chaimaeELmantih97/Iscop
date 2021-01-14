@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','Beauty Design - Order Track Page')
+@section('title','ISCOP SUP - Order Track Page')
 
 @section('main-content')
     <!-- Breadcrumbs -->

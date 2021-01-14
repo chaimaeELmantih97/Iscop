@@ -11,7 +11,7 @@ $banner=App\Models\Banner::first();
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="countdown-part">
-                    <span class="sub-title">{{$banner->title}}</span>
+                    <span class="sub-title" style="color: #202020 !important">{{$banner->title}}</span>
                     <h3 style="color:white;">{{$banner->description}} </h3>
                     <div class="counter-wrap">
                         <div class="timecounter-inner">
@@ -144,11 +144,18 @@ $banner=App\Models\Banner::first();
                         <div class="col-sm-6">
                             <div class="course-author">
                                 <div class="align-img">
-                                    <img src="{{url('frontend/images/team/3.jpg')}}" alt="">
+                                    @php
+                                    $settings=DB::table('settings')->get();
+                                    @endphp
+                                    @foreach($settings as $data)
+                                    <img src="{{$data->logo}}" alt="">
+                                    @endforeach
                                 </div>
                                 <div class="author-content">
-                                    <h4 class="mb-0">Ismail ELHouiti</h4>
-                                    <p>Chef de projet et enseignant</p>
+                                    <h4 class="mb-0">ISCOP SUP</h4>
+                                    <p>
+                                        Centre de Formation Professionnelle
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +203,7 @@ $formations=App\Models\Category::all();
                     <div class="cource-item">
                         <div class="cource-img">
                             <img src="{{$formation->photo}}" alt=""
-                                style=" object-fit: cover; min-height:300px; max-height:300px; " />
+                                style="min-height:370px; max-height:370px; " />
                             <a class="image-link" href="{{route('product-detail',$formation->slug)}}"
                                 title="University Tour 2018">
                                 <i class="fa fa-link"></i>
@@ -401,7 +408,23 @@ $formations=App\Models\Category::all();
 @endif
 {{-- end testimonial --}}
 
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">voici l'une de nos formations les plus demandées.</h5>
+          {{-- <button class="float-right btn btn-primary" style="right: 0;"><i class="fa fa-graduation-cap mr-2"></i> S'inscrire</button> --}}
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="width: 100%">
+            <img src="{{url('storage/photos/1/logistique.jpg')}}" style="width:100%; " alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 @endsection
 
 @push('styles')

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','ISCOP SUP - À Propos de nous')
+@section('title','ISCOP SUP ')
 
 @section('main-content')
 

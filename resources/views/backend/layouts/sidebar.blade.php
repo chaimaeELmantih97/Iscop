@@ -23,37 +23,18 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Bannière
+        Bannières
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('file-manager')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Gestionnaire des médias</span></a>
-    </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('banner.index')}}" >
+        <a class="nav-link collapsed" href="{{route('banner.index')}}">
             <i class="fas fa-image"></i>
             <span>Bannières</span>
         </a>
-        {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Options du Bannière:</h6>
-                <a class="collapse-item" href="{{route('banner.index')}}">Bannières</a>
-                <a class="collapse-item" href="{{route('banner.create')}}">Ajouter une Bannière</a>
-            </div>
-        </div> --}}
     </li>
-
-    {{-- <!-- Divider -->
-    <hr class="sidebar-divider">
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Produits
-    </div> --}}
 
     <!-- Categories -->
     <li class="nav-item">
@@ -72,32 +53,11 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('inscription')}}" >
+        <a class="nav-link collapsed" href="{{route('inscription')}}">
             <i class="fas fa-book"></i>
             <span>Les inscriptions</span>
         </a>
-        {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Options du Bannière:</h6>
-                <a class="collapse-item" href="{{route('banner.index')}}">Bannières</a>
-                <a class="collapse-item" href="{{route('banner.create')}}">Ajouter une Bannière</a>
-            </div>
-        </div> --}}
     </li>
-    {{-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse"
-            aria-expanded="true" aria-controls="productCollapse">
-            <i class="fas fa-cubes"></i>
-            <span>Produits</span>
-        </a>
-        <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Options de Produit :</h6>
-                <a class="collapse-item" href="{{route('product.index')}}">Produits</a>
-                <a class="collapse-item" href="{{route('product.create')}}">Ajouter un Produit</a>
-            </div>
-        </div>
-    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#serviceCollapse"
@@ -114,24 +74,9 @@
         </div>
     </li>
 
-    {{-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#catalogCollapse" aria-expanded="true"
-            aria-controls="catalogCollapse">
-            <i class="fas fa-table"></i>
-            <span>Catalogues</span>
-        </a>
-        <div id="catalogCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Options de Catalogue:</h6>
-                <a class="collapse-item" href="{{route('catalog.index')}}">Catalogues</a>
-                <a class="collapse-item" href="{{route('catalog.create')}}">Ajouter un Catalogue</a>
-            </div>
-        </div>
-    </li> --}}
-
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonialCollapse" aria-expanded="true"
-            aria-controls="testimonialCollapse">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonialCollapse"
+            aria-expanded="true" aria-controls="testimonialCollapse">
             <i class="fas fa-table"></i>
             <span>Témoignages</span>
         </a>
@@ -144,20 +89,10 @@
         </div>
     </li>
 
-    {{-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#promotionCollapse"
-            aria-expanded="true" aria-controls="promotionCollapse">
-            <i class="fas fa-table"></i>
-            <span>Promotions</span>
-        </a>
-        <div id="promotionCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Options de Promotion:</h6>
-                <a class="collapse-item" href="{{route('promotion.index')}}">Promotions</a>
-                <a class="collapse-item" href="{{route('promotion.create')}}">Ajouter une Promotion</a>
-            </div>
-        </div>
-    </li> --}}
+    <li class="nav-item">
+            <a class="nav-link" href="{{route('galerie.index')}}"> <i class="fas fa-fw fa-chart-area"></i>
+                <span>Galries</span></a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true"
@@ -174,42 +109,12 @@
         </div>
     </li>
 
-    {{-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" href="{{route('about.edit')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>À Propos</span></a>
-    </li> --}}
-
-    {{--
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse"
-            aria-expanded="true" aria-controls="shippingCollapse">
-            <i class="fas fa-truck"></i>
-            <span>Shipping</span>
-        </a>
-        <div id="shippingCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Shipping Options:</h6>
-                <a class="collapse-item" href="{{route('shipping.index')}}">Shipping</a>
-                <a class="collapse-item" href="{{route('shipping.create')}}">Add Shipping</a>
-            </div>
-        </div>
     </li>
 
-    <!--Orders -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('order.index')}}">
-            <i class="fas fa-hammer fa-chart-area"></i>
-            <span>Orders</span>
-        </a>
-    </li>
-
-    <!-- Reviews -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('review.index')}}">
-            <i class="fas fa-comments"></i>
-            <span>Reviews</span></a>
-    </li> --}}
 
 
     <!-- Divider -->
@@ -235,7 +140,12 @@
             </div>
         </div>
     </li>
-
+    <hr class="sidebar-divider">
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('users.index')}}">
+            <i class="fas fa-users"></i>
+            <span>Utilisateurs</span></a>
+    </li>
     {{-- <!-- Category -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCategoryCollapse"
@@ -247,9 +157,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Category Options:</h6>
                 <a class="collapse-item" href="{{route('post-category.index')}}">Category</a>
-                <a class="collapse-item" href="{{route('post-category.create')}}">Add Category</a>
-            </div>
-        </div>
+    <a class="collapse-item" href="{{route('post-category.create')}}">Add Category</a>
+    </div>
+    </div>
     </li> --}}
 
     {{-- <!-- Tags -->
@@ -263,17 +173,17 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Tag Options:</h6>
                 <a class="collapse-item" href="{{route('post-tag.index')}}">Tag</a>
-                <a class="collapse-item" href="{{route('post-tag.create')}}">Add Tag</a>
-            </div>
-        </div>
+    <a class="collapse-item" href="{{route('post-tag.create')}}">Add Tag</a>
+    </div>
+    </div>
     </li> --}}
 
     <!-- Comments -->
     {{-- <li class="nav-item">
         <a class="nav-link" href="{{route('comment.index')}}">
-            <i class="fas fa-comments fa-chart-area"></i>
-            <span>Commentaires</span>
-        </a>
+    <i class="fas fa-comments fa-chart-area"></i>
+    <span>Commentaires</span>
+    </a>
     </li> --}}
 
 

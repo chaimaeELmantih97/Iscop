@@ -64,14 +64,10 @@ class AdminController extends Controller
             'phone'=>'required|string',
             'facebook'=>'string',
             'instagram'=>'string',
-            'facebook2'=>'string',
-            'instagram2'=>'string',
             'linkedin'=>'string',
         ]);
         $data=$request->all();
-        // return $data;
         $settings=Settings::first();
-        // return $settings;
         $status=$settings->fill($data)->save();
         if($status){
             request()->session()->flash('success','Setting successfully updated');

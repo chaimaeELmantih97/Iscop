@@ -13,8 +13,9 @@ use App\Models\Cart;
 use App\Models\Brand;
 use App\Models\Service;
 use App\Models\AboutUs;
-use App\Models\Testimonial;
 use App\Models\Catalog;
+use App\Models\Testimonial;
+use App\Galerie;
 use App\Models\Promotion;
 use App\User;
 use Auth;
@@ -82,6 +83,8 @@ class FrontendController extends Controller
         // }
         return view('frontend.pages.product_detail')->with('formation',$formation[0]);
     }
+
+    
 
     public function productGrids(){
         $products=Product::query();
@@ -302,7 +305,7 @@ class FrontendController extends Controller
             $post=$post->where('status','active')->orderBy('id','DESC')->paginate($_GET['show']);
         }
         else{
-            $post=$post->where('status','active')->orderBy('id','DESC')->paginate(9);
+            $post=$post->where('status','active')->orderBy('id','DESC')->paginate(3);
         }
         // $post=Post::where('status','active')->paginate(8);
         $rcnt_post=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
@@ -467,6 +470,12 @@ class FrontendController extends Controller
         request()->session()->flash('success','votre inscription est terminée avec succès!');
         return back();
 
+   }
+
+
+   public function galerieFormation(Request $request){
+        $galeries=Galerie::where('formation_id',$request->id)->get();
+        return view('frontend.pages.galerieFormation')->with('galeries',$galeries[0]);
    }
 
 }

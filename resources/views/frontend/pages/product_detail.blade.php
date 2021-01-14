@@ -6,7 +6,7 @@
 <meta name='copyright' content=''>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 @endsection
-@section('title','ISCOP || PRODUCT DETAIL')
+@section('title','ISCOP SUP || Details de Formation')
 @section('main-content')
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
@@ -44,6 +44,27 @@
                 	        	170 <span>SEATS</span>
                 	        </div> --}}
                 </div>
+
+              
+                <div class="row">
+                    <div class="col-md-6 float-left">
+                        <div class="btn-area float-left">
+                            <a target='_blanck' href="https://api.whatsapp.com/send?phone={{$formation->whatsapp}}"><i class="fa fa-whatsapp"></i> contactez-nous en whatsapp</a>
+                        </div>
+                    </div>
+                    @if(count($formation->galeries))
+                    <div class="col-md-6 float-right">
+                        <form action="{{route('galerieFormation')}}" id="galerieForm">
+                            @csrf
+                            <input type="hidden" name="id" value='{{$formation->id}}'>
+                        </form>
+                        <div class="btn-area">
+                            <a href="#" onclick="document.getElementById('galerieForm').submit();">Voire la galerie</a>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+               
                 <div class="row">
                     <div class="col-md-12">
                         <div class="course-des-tabs">
@@ -137,8 +158,8 @@
                 data-md-device="3" data-md-device-nav="true">
                 @foreach ($frs as $fr)
                 <div class="course-item">
-                    <div class="course-img">
-                        <img src="{{$fr->photo}}" alt="" />
+                    <div class="course-img" style="width: 100%;">
+                        <img src="{{$fr->photo}}"  style="width: 100%; height: 350px; object-fit: cover;" alt="" />
                         <span class="course-value"><a href="https://api.whatsapp.com/send?phone={{$formation->whatsapp}}"> <i class="fa fa-whatsapp" aria-hidden="true" style="color: white; font-size: 20px;"></i></a>
                         </span>
                         <div class="course-toolbar">

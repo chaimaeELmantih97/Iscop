@@ -93,8 +93,6 @@ Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
-
-
 // Backend section start
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
@@ -122,6 +120,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('/service','ServiceController');
     // Catalogs
     Route::resource('/catalog','CatalogController');
+    // Catalogs
+    Route::resource('/galerie','GalerieController');
     // Testimonials
     Route::resource('/testimonial','TestimonialController');
     // Promotions
@@ -160,15 +160,6 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
 });
-
-
-
-
-
-
-
-
-
 
 // User section start
 Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
@@ -235,3 +226,7 @@ Route::get('services/GrandesEcoles', function () {
 Route::get('services/FontionPriveePublique', function () {
     return view('frontend.pages.services.PubliquePrivée');
 });
+Route::get('galerie', function () {
+    return view('frontend.pages.galerie');
+})->name('galerie');
+Route::get('galerieFormation','FrontendController@galerieFormation')->name('galerieFormation');

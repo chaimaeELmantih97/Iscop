@@ -122,15 +122,7 @@
 															<td class="text-center pb25" style="color:#c1cddc; font-family:'Muli', Arial,sans-serif; font-size:16px; line-height:30px; text-align:center; padding-bottom:25px;">merci de vous être abonné à notre NewsLettres<span class="m-hide"><br /></span></td>
 														</tr>
 														<!-- Button -->
-														<tr>
-															<td align="center">
-																<table class="center" border="0" cellspacing="0" cellpadding="0" style="text-align:center;">
-																	<tr>
-																		<td class="pink-button text-button" style="background:#ff6666; color:#c1cddc; font-family:'Muli', Arial,sans-serif; font-size:14px; line-height:18px; padding:12px 30px; text-align:center; border-radius:0px 22px 22px 22px; font-weight:bold;"><a href="#" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;"><span class="link-white" style="color:#ffffff; text-decoration:none;">CLICK HERE</span></a></td>
-																	</tr>
-																</table>
-															</td>
-														</tr>
+														
 														<!-- END Button -->
 													</table>
 												</td>

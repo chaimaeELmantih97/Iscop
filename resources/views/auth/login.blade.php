@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Beauty Design - Se Connecter</title>
+  <title>ISCOP SUP - Se Connecter</title>
   @include('backend.layouts.head')
 
 </head>

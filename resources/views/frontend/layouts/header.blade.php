@@ -20,12 +20,21 @@
                             <ul>
                                 <li><a target="_blank" href="https://api.whatsapp.com/send?phone=++212607158182"><i
                                             class="fa fa-whatsapp"></i></a></li>
-                                <li><a target="_blank" href="{{$data->facebook}}"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li><a target="_blank" href="{{$data->instagram}}"><i class="fa fa-instagram"></i></a>
-                                </li>
-                                <li><a target="_blank" href="{{$data->linkedin}}"><i class="fa fa-linkedin"></i></a>
-                                </li>
+                                            @if ($data->facebook)
+                                            <li><a target="_blank" href="{{$data->facebook}}"><i class="fa fa-facebook"></i></a></li>
+                                            @endif
+                                            @if ($data->instagram)
+                                            <li><a target="_blank" href="{{$data->instagram}}"><i class="fa fa-instagram"></i></a></li>
+                                            @endif
+                                            @if ($data->facebook2)
+                                            <li><a target="_blank" href="{{$data->facebook2}}"><i class="fa fa-facebook"></i></a></li>
+                                            @endif
+                                            @if ($data->instagram2)
+                                            <li><a target="_blank" href="{{$data->instagram2}}"><i class="fa fa-instagram"></i></a></li>
+                                            @endif
+                                            @if ($data->linkedin)
+                                            <li><a target="_blank" href="{{$data->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                                            @endif
                             </ul>
                         </div>
                         {{-- <a href="#" class="apply-btn">Apply Now</a> --}}
@@ -46,7 +55,7 @@
                         <div class="logo-area">
                             {{-- <a href="index.html"><img src="images/logo.png" alt="logo"></a> --}}
 
-                            <a href="{{route('home')}}"><img src="{{url($data->logo)}}" style="height:70px"
+                            <a href="{{route('home')}}"><img src="{{url($data->logo)}}" style="height:90px"
                                     alt="logo"></a>
 
                         </div>
@@ -108,15 +117,13 @@
                                 <nav class="rs-menu bg-aqua">
                                     <ul class="nav-menu">
                                         <!-- Home -->
-                                        <li
-                                            class="{{ Request::routeIs('home') ? 'current-menu-item current_page_item  ' : '' }}">
+                                        <li class=" {{ Request::routeIs('home') ? 'current-menu-item current_page_item  ' : '' }}">
                                             <a href="{{route('home')}}" class="home">Accueil</a>
                                         </li>
                                         <!-- End Home -->
 
                                         <!--About Menu Start-->
-                                        <li
-                                            class="menu-item-has-children {{ (request()->segment(1) == 'details-Formation') ? 'current-menu-item current_page_item' : '' }}">
+                                        <li class=" menu-item-has-children {{ (request()->segment(1) == 'details-Formation') ? 'current-menu-item current_page_item' : '' }}">
                                             <a href="#">Formation Certifiante</a>
                                             <ul class="sub-menu">
                                                 @foreach(Helper::getAllCategory() as $cat)
@@ -138,13 +145,11 @@
                                             </ul>
                                         </li>
                                         <!--About Menu End-->
-                                        <li
-                                            class="{{ Request::routeIs('about-us') ? 'current-menu-item current_page_item  ' : '' }}">
+                                        <li class=" {{ Request::routeIs('about-us') ? 'current-menu-item current_page_item  ' : '' }}">
                                             <a href="{{route('about-us')}}">À propos de nous</a>
                                         </li>
 
-                                        <li
-                                            class="menu-item-has-children {{ (request()->segment(1) == 'services') ? 'current-menu-item current_page_item' : '' }}">
+                                        <li class=" menu-item-has-children {{ (request()->segment(1) == 'services') ? 'current-menu-item current_page_item' : '' }}">
                                             <a href="#">Autres services</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item-has-children"> <a href="#">Soutien Et
@@ -177,7 +182,7 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="menu-item-has-children"> <a href="#">Orientation</a>
+                                                <li class="mr-3 menu-item-has-children"> <a href="#">Orientation</a>
                                                     <ul class="sub-menu">
                                                         <li class="menu-item-has-children"> <a
                                                                 href="{{url('services/OrientationPédagogique')}}">Pédagogique</a>
@@ -187,7 +192,7 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="menu-item-has-children"> <a href="#">Préparation Aux Concours</a>
+                                                <li class="mr-3 menu-item-has-children"> <a href="#">Préparation Aux Concours</a>
                                                     <ul class="sub-menu">
                                                         <li class="menu-item-has-children"> <a
                                                                 href="{{url('services/GrandesEcoles')}}">Grandes Écoles</a>
@@ -201,16 +206,20 @@
                                             </ul>
                                         </li>
                                         <!--blog Menu Start-->
-                                        <li
-                                            class="{{ Request::routeIs('blog') ? 'current-menu-item current_page_item  ' : '' }}">
+                                        <li  class=" {{ Request::routeIs('blog') ? 'current-menu-item current_page_item  ' : '' }}">
                                             <a href="{{route('blog')}}">Blog</a>
                                         </li>
                                         <!--blog Menu End-->
-
+                                        {{-- notre galerie  --}}
+                                        <li
+                                            class="{{ Request::routeIs('galerie') ? 'current-menu-item current_page_item  ' : '' }}">
+                                            <a href="{{route('galerie')}}">Notre Galerie</a>
+                                        </li>
                                         <!--Contact Menu Start-->
                                         <li
                                             class="{{ Request::routeIs('contact') ? 'current-menu-item current_page_item  ' : '' }}">
-                                            <a href="{{route('contact')}}">Contact</a></li>
+                                            <a href="{{route('contact')}}">Contact</a>
+                                        </li>
                                     </ul>
                                 </nav>
 
