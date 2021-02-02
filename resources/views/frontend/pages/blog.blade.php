@@ -4,7 +4,7 @@
 
 @section('main-content')
 
-<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+{{-- <div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
     <div class="breadcrumbs-inner">
         <div class="container">
             <div class="row">
@@ -20,8 +20,8 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> --}}
+@include('frontend.pages.breadcrumbs')
 <div class="blog-page-area sec-spacer">
     <div class="container">
         @foreach($posts as $post)

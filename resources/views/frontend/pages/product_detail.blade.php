@@ -9,7 +9,7 @@
 @section('title','ISCOP SUP || Details de Formation')
 @section('main-content')
 <!-- Breadcrumbs Start -->
-<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+{{-- <div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
     <div class="breadcrumbs-inner">
         <div class="container">
             <div class="row">
@@ -25,8 +25,8 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> --}}
+@include('frontend.pages.breadcrumbs')
 <!-- Breadcrumbs End -->
 
 <!-- Courses Details Start -->
@@ -45,7 +45,7 @@
                 	        </div> --}}
                 </div>
 
-              
+
                 <div class="row">
                     <div class="col-md-6 float-left">
                         <div class="btn-area float-left">
@@ -64,7 +64,7 @@
                     </div>
                     @endif
                 </div>
-               
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="course-des-tabs">
@@ -146,7 +146,7 @@
         <!-- Testimonial Start -->
         <div class="related-courses rs-courses-3">
             <div class="sec-title-2 mb-50">
-                <h2>RELATED COURSES</h2>
+                <h2>Autres Formations</h2>
                 {{-- <p>Considering primary motivation for the generation of narratives is a useful concept</p> --}}
             </div>
             @php
@@ -157,6 +157,7 @@
                 data-mobile-device="1" data-mobile-device-nav="true" data-ipad-device="2" data-ipad-device-nav="true"
                 data-md-device="3" data-md-device-nav="true">
                 @foreach ($frs as $fr)
+                @if($fr->is_parent!=1)
                 <div class="course-item">
                     <div class="course-img" style="width: 100%;">
                         <img src="{{$fr->photo}}"  style="width: 100%; height: 350px; object-fit: cover;" alt="" />
@@ -192,6 +193,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
 
             </div>

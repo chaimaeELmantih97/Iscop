@@ -4,7 +4,7 @@
 
 @section('main-content')
 		<!-- Breadcrumbs Start -->
-		<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+		{{-- <div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
 		    <div class="breadcrumbs-inner">
 		        <div class="container">
 		            <div class="row">
@@ -20,7 +20,8 @@
 		            </div>
 		        </div>
 		    </div>
-		</div>
+        </div> --}}
+        @include('frontend.pages.breadcrumbs')
 		<!-- Breadcrumbs End -->
 
 		<!-- Blog Single Start Here -->

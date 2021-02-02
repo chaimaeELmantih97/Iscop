@@ -20,8 +20,8 @@
             <tr>
               <th>ID</th>
               <th>titre</th>
-              <th>Est parent</th>
-              <th>Formation mére</th>
+              <th>Atelier</th>
+              <th>Atelier Parent</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>

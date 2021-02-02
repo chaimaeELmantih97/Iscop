@@ -31,7 +31,7 @@
           </div>
 
         <div class="form-group">
-          <label for="is_parent">Est parent</label><br>
+          <label for="is_parent">Atelier :</label><br>
           <input type="checkbox" name='is_parent' id='is_parent' value='1' checked> Oui
         </div>
         {{-- {{$parent_cats}} --}}
@@ -102,7 +102,7 @@
                   <i class="fa fa-picture-o"></i> sélectionnez
                   </a>
               </span>
-          <input id="thumbnail" class="form-control" required type="text" name="photo" value="{{old('photo')}}">
+          <input id="thumbnail" class="form-control"  type="text" name="photo" value="{{old('photo')}}">
         </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
 

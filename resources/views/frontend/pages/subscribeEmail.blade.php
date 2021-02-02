@@ -19,7 +19,7 @@
     <!--[if !mso]><!-->
 	<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet" />
     <!--<![endif]-->
-	<title>Email Template</title>
+	<title>ISCOP SUP</title>
 	<!--[if gte mso 9]>
 	<style type="text/css" media="all">
 		sup { font-size: 100% !important; }
@@ -196,10 +196,13 @@
 												<td align="center" style="padding-bottom: 30px;">
 													<table border="0" cellspacing="0" cellpadding="0">
 														<tr>
-															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{url('frontend/images/ico_facebook.jpg')}}" width="38" height="38" border="0" alt="" /></a></td>
-															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{url('frontend/images/ico_twitter.jpg')}}" width="38" height="38" border="0" alt="" /></a></td>
-															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{url('frontend/images/ico_instagram.jpg')}}" width="38" height="38" border="0" alt="" /></a></td>
-															<td class="img" width="38" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="{{url('frontend/images/ico_linkedin.jpg')}}" width="38" height="38" border="0" alt="" /></a></td>
+															@php
+														    $settings=DB::table('settings')->get();
+														    @endphp
+														    @foreach($settings as $data)
+															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="{{$data->facebook}}" target="_blank"><img src="https://cdn.pixabay.com/photo/2017/08/20/10/30/facebook-2661207_640.jpg" width="38" height="38" border="0" alt="" /></a></td>
+															<td class="img" width="55" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="{{$data->instagram}}" target="_blank"><img src="https://f.hellowork.com/blogdumoderateur/2018/06/logo-instagram-1200x864.jpg" width="38" height="38" border="0" alt="" /></a></td>
+															@endforeach
 														</tr>
 													</table>
 												</td>

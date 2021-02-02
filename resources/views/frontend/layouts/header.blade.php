@@ -18,22 +18,22 @@
                     <div class="rs-toolbar-right">
                         <div class="toolbar-share-icon">
                             <ul>
+                                @if ($data->facebook2)
+                                <li><a target="_blank" href="{{$data->facebook2}}"><i class="fa fa-facebook" style="font-size:20px; color:#046FE3;"></i></a></li>
+                                @endif
                                 <li><a target="_blank" href="https://api.whatsapp.com/send?phone=++212607158182"><i
-                                            class="fa fa-whatsapp"></i></a></li>
+                                            class="fa fa-whatsapp" style="font-size:20px; color:#30AB43;"></i></a></li>
                                             @if ($data->facebook)
-                                            <li><a target="_blank" href="{{$data->facebook}}"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a target="_blank" href="{{$data->facebook}}"><i class="fa fa-facebook" style="font-size:20px; color:#046FE3;"></i></a></li>
                                             @endif
                                             @if ($data->instagram)
-                                            <li><a target="_blank" href="{{$data->instagram}}"><i class="fa fa-instagram"></i></a></li>
-                                            @endif
-                                            @if ($data->facebook2)
-                                            <li><a target="_blank" href="{{$data->facebook2}}"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a target="_blank" href="{{$data->instagram}}"><i class="fa fa-instagram" style="font-size:20px; color:#C02C82;"></i></a></li>
                                             @endif
                                             @if ($data->instagram2)
-                                            <li><a target="_blank" href="{{$data->instagram2}}"><i class="fa fa-instagram"></i></a></li>
+                                            <li><a target="_blank" href="{{$data->instagram2}}"><i class="fa fa-instagram" style="font-size:20px; color:#C02C82;"></i></a></li>
                                             @endif
                                             @if ($data->linkedin)
-                                            <li><a target="_blank" href="{{$data->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a target="_blank" href="{{$data->linkedin}}"><i class="fa fa-linkedin" style="font-size:20px; color:#0A66C2;"></i></a></li>
                                             @endif
                             </ul>
                         </div>
@@ -93,7 +93,7 @@
                                         <i class="glyph-icon flaticon-placeholder"></i>
                                         <div class="info-text">
                                             <span>Location</span>
-                                            {{$data->address}}
+                                            Siège: {{$data->address}}
                                         </div>
                                     </div>
                                 </div>
@@ -124,17 +124,18 @@
 
                                         <!--About Menu Start-->
                                         <li class=" menu-item-has-children {{ (request()->segment(1) == 'details-Formation') ? 'current-menu-item current_page_item' : '' }}">
-                                            <a href="#">Formation Certifiante</a>
+                                            <a href="#">ATELIER FORMATION</a>
                                             <ul class="sub-menu">
                                                 @foreach(Helper::getAllCategory() as $cat)
 
                                                 <li @if($cat->child_cat) class="menu-item-has-children" @endif> <a
-                                                        href="{{route('product-detail',$cat->slug)}}">{{$cat->title}}</a>
+                                                        href="#">{{$cat->title}}</a>
                                                     <ul class="sub-menu">
                                                         @foreach($cat->child_cat as $item)
                                                         <li>
                                                             <a
-                                                                href="{{route('product-detail',$item->slug)}}">{{$item->title}}</a>
+                                                                href="{{route('product-detail',$item->slug)}}">{{$item->title}}
+                                                            </a>
                                                         </li>
                                                         @endforeach
                                                     </ul>

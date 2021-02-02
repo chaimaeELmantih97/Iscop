@@ -4,31 +4,7 @@
 
 @section('main-content')
 
-	@php
-		$settings=DB::table('settings')->get();
-	@endphp
-
-    <!-- start page-title -->
-    <div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
-        <div class="breadcrumbs-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1 class="page-title">À propos de nous</h1>
-                        <ul>
-                            <li>
-                                <a class="active" href="{{route('home')}}">Accueil</a>
-                            </li>
-                            <li>À propos de nous</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-	<!-- end page-title -->
-
-
+    @include('frontend.pages.breadcrumbs')
 	<!-- start about -->
     <div class="rs-history sec-spacer">
         <div class="container">

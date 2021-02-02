@@ -46,7 +46,7 @@
             $galeries=App\Galerie::all();
             @endphp
             @foreach ($galeries as $g)
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 mt-2">
                 <div class="gallery-item" style="width:100%">
                     <img class="gimg" src="{{$g->photo}}" alt="Gallery Image" />
                     <div class="gallery-desc">

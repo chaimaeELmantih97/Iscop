@@ -354,7 +354,7 @@ $settings=DB::table('settings')->get();
                         <input class="form-control" name="nom" placeholder="Nom Complet" type="text" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" name="email" placeholder="Email" type="text" required>
+                        <input class="form-control" name="email" placeholder="Email" type="email" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control" name="tel" placeholder="Numéro du telephone" type="text" required>
@@ -372,13 +372,15 @@ $settings=DB::table('settings')->get();
                     </div> --}}
                     <div class="form-group">
                         <div class="select-style">
-                            <select name="formation" reduired>
-                                <option value="" style="color: #A6AEBC;"> selectionner une formation</option>
+                            <select name="formation" reduired >
+                                <option value="" style="color: #A6AEBC;"  required> selectionner une formation</option>
                                 @php
                                     $frs=App\Models\Category::all();
                                 @endphp
                                 @foreach ($frs as $item)
+                                @if($item->is_parent!=1)
                                 <option value="{{$item->title}}" > {{$item->title}}</option>
+                                @endif
                                 @endforeach
                             </select>
                           </div>
@@ -427,20 +429,20 @@ $settings=DB::table('settings')->get();
 <script src="{{url('modal/modal.js')}}"></script>
 <script>
     // openGenModal('1');
-    $('#myModal').modal('show'); 
+    $('#myModal').modal('show');
 </script>
 <script>
-    $(document).ready(function(){ 
-    $(window).scroll(function(){ 
-        if ($(this).scrollTop() > 100) { 
-            $('#scroll').fadeIn(); 
-        } else { 
-            $('#scroll').fadeOut(); 
-        } 
-    }); 
-    $('#scroll').click(function(){ 
-        $("html, body").animate({ scrollTop: 0 }, 600); 
-        return false; 
-    }); 
+    $(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#scroll').fadeIn();
+        } else {
+            $('#scroll').fadeOut();
+        }
+    });
+    $('#scroll').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
 });
 </script>

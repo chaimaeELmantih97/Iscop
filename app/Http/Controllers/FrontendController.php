@@ -84,7 +84,7 @@ class FrontendController extends Controller
         return view('frontend.pages.product_detail')->with('formation',$formation[0]);
     }
 
-    
+
 
     public function productGrids(){
         $products=Product::query();
@@ -474,7 +474,7 @@ class FrontendController extends Controller
 
 
    public function galerieFormation(Request $request){
-        $galeries=Galerie::where('formation_id',$request->id)->get();
+        $galeries=Galerie::where('category_id',$request->id)->get();
         return view('frontend.pages.galerieFormation')->with('galeries',$galeries[0]);
    }
 
